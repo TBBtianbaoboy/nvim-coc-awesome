@@ -44,6 +44,7 @@ local disable_distribution_plugins = function()
 end
 
 local leader_map = function()
+    -- <leader>
     vim.g.mapleader = ";"
     vim.api.nvim_set_keymap("n", " ", "", {noremap = true})
     vim.api.nvim_set_keymap("x", " ", "", {noremap = true})
@@ -181,14 +182,14 @@ local load_core = function()
     -- clipboard_settings()
 
 vim.g.gruvbox_contrast_dark = 'hard'
+-- 默认主题
 vim.cmd [[colorscheme gruvbox]]
-    require("core.options")
-    require("core.mapping")
-    require("keymap")
-    require("core.event")
-    pack.load_compile()
+require("core.options")
+require("core.mapping")
+require("keymap")
+require("core.event")
+pack.load_compile()
 
-    -- vim.cmd [[colorscheme morhetz]]
 end
 
 load_core()

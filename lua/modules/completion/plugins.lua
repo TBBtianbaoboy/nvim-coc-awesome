@@ -5,6 +5,7 @@ completion["neoclide/coc.nvim"] = {
     event = "BufRead",
     branch = "release",
     config = function()
+        -- lua运行vim配置文件
         vim.api.nvim_exec(
             [[source ~/.config/nvim/lua/modules/completion/coc_config.vim]],
             false)
