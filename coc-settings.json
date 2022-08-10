@@ -1,0 +1,129 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  },
+  "rust-analyzer.enable": true,
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.server.path": "~/.local/bin/rust-analyzer",
+  "rust-analyzer.updates.checkOnStartup": true,
+  "rust-analyzer.inlayHints.enable": true,
+  "rust-analyzer.inlayHints.typeHints": true,
+
+  "clangd.enabled": true,
+  "clangd.checkUpdates": false,
+  "clangd.fallbackFlags": ["-std=c++17"],
+
+  "coc.source.around.enable": true,
+  "coc.source.buffer.enable": true,
+  "coc.source.file.enable": true,
+  "coc.source.db.enable": true,
+  //======all completion shortcut====== TODO
+  //tabline completion shortcut
+  "tabnine.shortcut": "TN",
+  //word completion shortcut
+  "coc.source.word.shortcut": "Word",
+  //emoji completion shortcut (only useful in markdown)
+  "coc.source.emoji.shortcut": "Emoji",
+
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "json",
+    "html",
+    "javascript",
+    "typescript"
+  ],
+  "Lua.telemetry.enable": true,
+  "git.enableGutters": false,
+  //======coc-explorer config====== TODO
+  //add icon
+  "explorer.icon.enableNerdfont": true,
+  //key mapping
+  "explorer.keyMappings.global": {
+    "i": false, // cancel default mapkey
+    "<c-o>": "noop",
+
+    "*": "toggleSelection",
+    "<tab>": "actionMenu",
+
+    "gk": ["wait", "expandablePrev"],
+    "gj": ["wait", "expandableNext"],
+    "h": ["wait", "collapse"],
+    "l": ["wait", "expandable?", "expand", "open"],
+    "J": ["wait", "toggleSelection", "normal:j"],
+    "K": ["wait", "toggleSelection", "normal:k"],
+    "gl": ["wait", "expand:recursive"],
+    "gh": ["wait", "collapse:recursive"],
+    "<2-LeftMouse>": [
+      "expandable?",
+      ["expanded?", "collapse", "expand"],
+      "open"
+    ],
+    "o": ["wait", "expanded?", "collapse", "expand"],
+    "<cr>": ["wait", "expandable?", "cd", "open"],
+    "e": "open",
+    "s": "open:split",
+    "E": "open:vsplit",
+    "t": "open:tab",
+    "<bs>": ["wait", "gotoParent"],
+    "gs": ["wait", "reveal:select"],
+    "il": "preview:labeling",
+    "ic": "preview:content",
+    "Il": "previewOnHover:toggle:labeling",
+    "Ic": "previewOnHover:toggle:content",
+    "II": "previewOnHover:disable",
+
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "p": "pasteFile",
+    "df": "delete",
+    "dF": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "zh": "toggleHidden",
+    "g<dot>": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+    "gd": "listDrive",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+
+    "[[": ["wait", "sourcePrev"],
+    "]]": ["wait", "sourceNext"],
+
+    "[i": ["wait", "indentPrev"],
+    "]i": ["wait", "indentNext"],
+
+    "[m": ["wait", "markPrev:modified"],
+    "]m": ["wait", "markNext:modified"],
+
+    "[d": ["wait", "markPrev:diagnosticError:diagnosticWarning"],
+    "]d": ["wait", "markNext:diagnosticError:diagnosticWarning"],
+    "[D": ["wait", "markPrev:diagnosticError"],
+    "]D": ["wait", "markNext:diagnosticError"],
+
+    "[c": ["wait", "markPrev:git"],
+    "]c": ["wait", "markNext:git"],
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  }
+}
