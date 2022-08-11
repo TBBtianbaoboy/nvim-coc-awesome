@@ -144,5 +144,5 @@ let g:coc_global_extensions = [
       \'coc-emoji',
       \'coc-tabnine',
       \'coc-gitignore',
-      \'coc-cmake'
+      \'coc-cmake',
       \]
