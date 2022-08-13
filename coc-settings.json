@@ -55,6 +55,7 @@
   "Lua.telemetry.enable": true,
   "git.enableGutters": false,
   //======coc-explorer config====== TODO
+  // install way: CocInstall coc-explorer
   //add icon
   "explorer.icon.enableNerdfont": true,
   //key mapping
