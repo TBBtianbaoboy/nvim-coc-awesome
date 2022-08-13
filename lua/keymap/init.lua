@@ -6,9 +6,18 @@ local map_cmd = bind.map_cmd
 require("keymap.config")
 
 local plug_map = {
-    -- 注释快捷键<C-/>
-    ["n|<C-_>"] = map_cr("CommentToggle"):with_noremap():with_silent(),
-    ["v|<C-_>"] = map_cr("CommentToggle"):with_noremap():with_silent(),
+    -- git alternative (parent ] key only for git)
+    ["n|]d"] = map_cr("Gitsigns diffthis"):with_noremap():with_silent(),
+    ["n|[g"] = map_cr("Gitsigns prev_hunk"):with_noremap():with_silent(),
+    ["n|]g"] = map_cr("Gitsigns next_hunk"):with_noremap():with_silent(),
+    ["n|]s"] = map_cr("Gitsigns stage_hunk"):with_noremap():with_silent(),
+    ["n|]u"] = map_cr("Gitsigns undo_stage_hunk"):with_noremap():with_silent(),
+    ["n|]p"] = map_cr("Gitsigns preview_hunk"):with_noremap():with_silent(),
+    ["n|]b"] = map_cr("Gitsigns blame_line"):with_noremap():with_silent(),
+    ["n|]a"] = map_cr("Gitsigns select_hunk"):with_noremap():with_silent(),
+    ["n|]r"] = map_cr("Gitsigns reset_hunk"):with_noremap():with_silent(),
+    -- symbols_outline
+    ["n|<leader>so"] = map_cr("Vista"):with_noremap():with_silent(),
     -- 缓冲线选择/删除快捷键
     ["n|<leader>1"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
     ["n|<leader>2"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent(),
@@ -28,8 +37,6 @@ local plug_map = {
     ["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
     ["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
     -- Plugin Telescope
-    -- ["n|<Leader>fh"] = map_cu("DashboardFindHistory"):with_noremap()
-        -- :with_silent(),
     ["n|<Leader>cc"] = map_cu("CocList colors"):with_noremap()
         :with_silent(),
     ["n|<Leader>ff"] = map_cu("Telescope fd"):with_noremap():with_silent(),
@@ -54,8 +61,6 @@ local plug_map = {
     -- Plugin EasyAlign
     ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
     ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
-    -- Plugin SymbolsOutline
-    ["n|<leader>so"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
     -- Plugin auto_session
     ["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent(),
     ["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),

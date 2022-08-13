@@ -14,14 +14,27 @@
   "rust-analyzer.inlayHints.enable": true,
   "rust-analyzer.inlayHints.typeHints": true,
 
-  "clangd.enabled": true,
-  "clangd.checkUpdates": false,
-  "clangd.fallbackFlags": ["-std=c++17"],
-
   "coc.source.around.enable": true,
   "coc.source.buffer.enable": true,
   "coc.source.file.enable": true,
   "coc.source.db.enable": true,
+
+  //======coc-conventional config====== git commit
+  "coc-conventional.enabled": true,
+  "coc-conventional.enableLernaScopes": false,
+  //======coc-leetcode config ======
+  "leetcode.language": "cpp",
+  "leetcode.enabled": true,
+  //======coc outline config======
+  "outline.switchSortKey": "<C-s>",
+  //======coc completion config======
+  //"suggest.languageSourcePriority": 99,
+  //======coc-clangd config======
+  // run shell command: "clang-format -style=Google -dump-config > .clang-format"
+  // in home directory to use google-style format
+  "clangd.enabled": true,
+  "clangd.checkUpdates": false,
+  "clangd.fallbackFlags": ["-std=c++17"],
   //======all completion shortcut====== TODO
   //tabline completion shortcut
   "tabnine.shortcut": "TN",

@@ -5,7 +5,7 @@ local conf = require("modules.tools.config")
 tools["RishabhRD/popfix"] = {opt = false}
 -- Required by telescope.nvim
 tools["nvim-lua/plenary.nvim"] = {opt = false}
--- Find, Filter, Preview, Pick
+-- Find, Filter, Preview, Pick ---------- all done
 tools["nvim-telescope/telescope.nvim"] = {
     opt = true,
     module = "telescope",
@@ -19,7 +19,7 @@ tools["nvim-telescope/telescope.nvim"] = {
 
 -- @func: 命令行模糊搜索以及自动补充
 -- @keymap: / | : | ?
--- @status: false 还不够智能
+-- @status: true ---------- all done
 tools["gelguy/wilder.nvim"] = {
     event = "CmdlineEnter",
     config = conf.wilder,

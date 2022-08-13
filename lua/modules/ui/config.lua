@@ -20,16 +20,17 @@ function config.lualine()
             return ""
         end
     end
+
     local symbols_outline = {
         sections = {
-            lualine_a = {'mode'},
-            lualine_b = {'filetype'},
+            lualine_a = { 'mode' },
+            lualine_b = { 'filetype' },
             lualine_c = {},
             lualine_x = {},
             lualine_y = {},
-            lualine_z = {'location'}
+            lualine_z = { 'location' }
         },
-        filetypes = {'Outline'}
+        filetypes = { 'Outline' }
     }
 
     require("lualine").setup {
@@ -38,29 +39,29 @@ function config.lualine()
             theme = "gruvbox",
             disabled_filetypes = {},
             component_separators = "|",
-            section_separators = {left = "", right = ""}
+            section_separators = { left = "", right = "" }
         },
         sections = {
-            lualine_a = {"mode"},
-            lualine_b = {{"branch"}, {"diff"}},
+            lualine_a = { "mode" },
+            lualine_b = { { "branch" }, { "diff" } },
             lualine_c = {
-                {"lsp_progress"}, {gps_content, cond = gps.is_available}
+                { "lsp_progress" }, { gps_content, cond = gps.is_available }
             },
             lualine_x = {
                 {
                     "diagnostics",
-                    sources = {'nvim_diagnostic'},
-                    symbols = {error = " ", warn = " ", info = " "}
+                    sources = { 'nvim_diagnostic' },
+                    symbols = { error = " ", warn = " ", info = " " }
                 }
             },
-            lualine_y = {"filetype", "encoding", "fileformat"},
-            lualine_z = {"progress", "location"}
+            lualine_y = { "filetype", "encoding", "fileformat" },
+            lualine_z = { "progress", "location" }
         },
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = {"filename"},
-            lualine_x = {"location"},
+            lualine_c = { "filename" },
+            lualine_x = { "location" },
             lualine_y = {},
             lualine_z = {}
         },
@@ -105,31 +106,31 @@ function config.gitsigns()
         signs = {
             add = {
                 hl = 'GitSignsAdd',
-                text = '│',
+                text = 'A',
                 numhl = 'GitSignsAddNr',
                 linehl = 'GitSignsAddLn'
             },
             change = {
                 hl = 'GitSignsChange',
-                text = '│',
+                text = 'M',
                 numhl = 'GitSignsChangeNr',
                 linehl = 'GitSignsChangeLn'
             },
             delete = {
                 hl = 'GitSignsDelete',
-                text = '_',
+                text = 'D',
                 numhl = 'GitSignsDeleteNr',
                 linehl = 'GitSignsDeleteLn'
             },
             topdelete = {
                 hl = 'GitSignsDelete',
-                text = '‾',
+                text = 'D',
                 numhl = 'GitSignsDeleteNr',
                 linehl = 'GitSignsDeleteLn'
             },
             changedelete = {
                 hl = 'GitSignsChange',
-                text = '~',
+                text = 'D',
                 numhl = 'GitSignsChangeNr',
                 linehl = 'GitSignsChangeLn'
             }
@@ -158,14 +159,14 @@ function config.gitsigns()
             ["o ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>',
             ["x ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>'
         },
-        watch_gitdir = {interval = 1000, follow_files = true},
+        watch_gitdir = { interval = 1000, follow_files = true },
         current_line_blame = true,
-        current_line_blame_opts = {delay = 1000, virtual_text_pos = "eol"},
+        current_line_blame_opts = { delay = 1000, virtual_text_pos = "eol" },
         sign_priority = 6,
         update_debounce = 100,
         status_formatter = nil, -- Use default
         word_diff = false,
-        diff_opts = {internal = true}
+        diff_opts = { internal = true }
     }
 end
 
@@ -188,7 +189,7 @@ function config.indent_blankline()
             "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
             "TelescopePrompt", "undotree", "flutterToolsOutline", "" -- for all buffers without a file type
         },
-        buftype_exclude = {"terminal", "nofile"},
+        buftype_exclude = { "terminal", "nofile" },
         show_trailing_blankline_indent = false,
         show_current_context = true,
         context_patterns = {

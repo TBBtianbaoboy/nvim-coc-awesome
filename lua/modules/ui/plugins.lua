@@ -3,17 +3,22 @@ local conf = require("modules.ui.config")
 
 -- @func: 提供icon
 -- @keymap: nil
--- @status: true
-ui["kyazdani42/nvim-web-devicons"] = {opt = false}
+-- @status: true ---------- all done
+ui["kyazdani42/nvim-web-devicons"] = {
+    opt = false,
+}
 
 -- @func: vim主题
--- @keymap: nil
--- @status: true
-ui["sainnhe/edge"] = {opt = false, config = conf.edge}
+-- @keymap: <leader>cc -> 切换主题
+-- @status: true ---------- all done
+ui["sainnhe/edge"] = {
+    opt = false,
+    config = conf.edge,
+}
 
 -- @func: vim主题
--- @keymap: nil
--- @status: true
+-- @keymap: <leader>cc -> 切换主题
+-- @status: true ---------- all done
 ui["morhetz/gruvbox"] = {
     opt = false,
     as = "morhetz",
@@ -21,7 +26,7 @@ ui["morhetz/gruvbox"] = {
 }
 -- @func: 下方状态栏
 -- @keymap: nil
--- @status: true
+-- @status: true ---------- all done
 ui["hoob3rt/lualine.nvim"] = {
     opt = true,
     after = "lualine-lsp-progress",
@@ -29,15 +34,13 @@ ui["hoob3rt/lualine.nvim"] = {
 }
 -- @func: lualine.nvim的依赖项
 -- @keymap: nil
--- @status: true
-ui["arkav/lualine-lsp-progress"] = {opt = true, after = "nvim-gps"}
+-- @status: true ---------- all done
+ui["arkav/lualine-lsp-progress"] = {
+    opt = true,
+    after = "nvim-gps",
+}
 
--- @func: dashboard面板
--- @keymap: nil
--- @status: true
-ui["glepnir/dashboard-nvim"] = {opt = true, event = "BufWinEnter"}
-
--- Show git status in nvim
+-- Show git status in nvim and more ---------- all done
 ui["lewis6991/gitsigns.nvim"] = {
     opt = true,
     event = {"BufRead", "BufNewFile"},
@@ -46,7 +49,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 -- @func: 显示缩进对齐线
 -- @keymap: nil
--- @status: true
+-- @status: true ---------- all done
 ui["lukas-reineke/indent-blankline.nvim"] = {
     opt = true,
     event = "BufRead",
@@ -55,7 +58,7 @@ ui["lukas-reineke/indent-blankline.nvim"] = {
 
 -- @func: 显示上标缓冲区
 -- @keymap: <leader>[0-9] | gb | gB
--- @status: true
+-- @status: true ---------- all done
 ui["akinsho/nvim-bufferline.lua"] = {
     opt = true,
     event = "BufRead",

@@ -143,6 +143,7 @@ let g:coc_global_extensions = [
       \'coc-word',
       \'coc-emoji',
       \'coc-tabnine',
-      \'coc-gitignore',
-      \'coc-cmake'
+      \'coc-cmake',
+      \'coc-leetcode',
+      \'coc-conventional',
       \]

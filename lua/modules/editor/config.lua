@@ -2,57 +2,6 @@ local config = {}
 local dap_dir = vim.fn.stdpath("data") .. "/dapinstall/"
 local sessions_dir = vim.fn.stdpath("data") .. "/sessions/"
 
-function config.symbols_outline()
-    require("symbols-outline").setup({
-        highlight_hovered_item = true,
-        width = 60,
-        show_guides = true,
-        auto_preview = true,
-        position = "right",
-        show_numbers = true,
-        show_relative_numbers = true,
-        show_symbol_details = true,
-        preview_bg_highlight = 'Pmenu',
-        keymaps = {
-            close = "<Esc>",
-            goto_location = "<Cr>",
-            focus_location = "o",
-            hover_symbol = "<C-space>",
-            rename_symbol = "r",
-            code_actions = "a"
-        },
-        lsp_blacklist = {},
-        symbols = {
-            File = {icon = "", hl = "TSURI"},
-            Module = {icon = "", hl = "TSNamespace"},
-            Namespace = {icon = "", hl = "TSNamespace"},
-            Package = {icon = "", hl = "TSNamespace"},
-            Class = {icon = "𝓒", hl = "TSType"},
-            Method = {icon = "ƒ", hl = "TSMethod"},
-            Property = {icon = "", hl = "TSMethod"},
-            Field = {icon = "", hl = "TSField"},
-            Constructor = {icon = "", hl = "TSConstructor"},
-            Enum = {icon = "ℰ", hl = "TSType"},
-            Interface = {icon = "ﰮ", hl = "TSType"},
-            Function = {icon = "", hl = "TSFunction"},
-            Variable = {icon = "", hl = "TSConstant"},
-            Constant = {icon = "", hl = "TSConstant"},
-            String = {icon = "𝓐", hl = "TSString"},
-            Number = {icon = "#", hl = "TSNumber"},
-            Boolean = {icon = "⊨", hl = "TSBoolean"},
-            Array = {icon = "", hl = "TSConstant"},
-            Object = {icon = "⦿", hl = "TSType"},
-            Key = {icon = "🔐", hl = "TSType"},
-            Null = {icon = "NULL", hl = "TSType"},
-            EnumMember = {icon = "", hl = "TSField"},
-            Struct = {icon = "𝓢", hl = "TSType"},
-            Event = {icon = "🗲", hl = "TSType"},
-            Operator = {icon = "+", hl = "TSOperator"},
-            TypeParameter = {icon = "𝙏", hl = "TSParameter"}
-        }
-    })
-end
-
 function config.vim_cursorwod()
     vim.api.nvim_command("augroup user_plugin_cursorword")
     vim.api.nvim_command("autocmd!")
@@ -69,41 +18,9 @@ function config.nvim_treesitter()
     vim.api.nvim_command("set foldmethod=expr")
     vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
 
-    require"nvim-treesitter.configs".setup {
+    require "nvim-treesitter.configs".setup {
         ensure_installed = "all",
-        highlight = {enable = true, disable = {"vim"}},
-        -- label 1
-        textobjects = {
-            select = {
-                enable = true,
-                keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ac"] = "@class.outer",
-                    ["ic"] = "@class.inner"
-                }
-            },
-            move = {
-                enable = true,
-                set_jumps = true, -- whether to set jumps in the jumplist
-                goto_next_start = {
-                    ["]["] = "@function.outer",
-                    ["]m"] = "@class.outer"
-                },
-                goto_next_end = {
-                    ["]]"] = "@function.outer",
-                    ["]M"] = "@class.outer"
-                },
-                goto_previous_start = {
-                    ["[["] = "@function.outer",
-                    ["[m"] = "@class.outer"
-                },
-                goto_previous_end = {
-                    ["[]"] = "@function.outer",
-                    ["[M"] = "@class.outer"
-                }
-            }
-        },
+        highlight = { enable = true, disable = { "vim" } },
         -- label 2
         rainbow = {
             enable = true,
@@ -111,9 +28,9 @@ function config.nvim_treesitter()
             max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
         },
         -- label 3
-        context_commentstring = {enable = true, enable_autocmd = false},
+        context_commentstring = { enable = true, enable_autocmd = false },
         -- label 4
-        matchup = {enable = true},
+        matchup = { enable = true },
     }
 end
 
@@ -254,87 +171,87 @@ end
 --     })
 -- end
 
-function config.dap()
-    local dap = require("dap")
-
-    dap.adapters.go = function(callback, config)
-        local stdout = vim.loop.new_pipe(false)
-        local handle
-        local pid_or_err
-        local port = 38697
-        local opts = {
-            stdio = {nil, stdout},
-            args = {"dap", "-l", "127.0.0.1:" .. port},
-            detached = true
-        }
-        handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
-            stdout:close()
-            handle:close()
-            if code ~= 0 then print("dlv exited with code", code) end
-        end)
-        assert(handle, "Error running dlv: " .. tostring(pid_or_err))
-        stdout:read_start(function(err, chunk)
-            assert(not err, err)
-            if chunk then
-                vim.schedule(function()
-                    require("dap.repl").append(chunk)
-                end)
-            end
-        end)
-        -- Wait for delve to start
-        vim.defer_fn(function()
-            callback({type = "server", host = "127.0.0.1", port = port})
-        end, 100)
-    end
-    -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
-    dap.configurations.go = {
-        {type = "go", name = "Debug", request = "launch", program = "${file}"},
-        {
-            type = "go",
-            name = "Debug test", -- configuration for debugging test files
-            request = "launch",
-            mode = "test",
-            program = "${file}"
-        }, -- works with go.mod packages and sub packages
-        {
-            type = "go",
-            name = "Debug test (go.mod)",
-            request = "launch",
-            mode = "test",
-            program = "./${relativeFileDirname}"
-        }
-    }
-
-    dap.adapters.python = {
-        type = "executable",
-        command = os.getenv("HOME") ..
-            "/.local/share/nvim/dapinstall/python_dbg/bin/python",
-        args = {"-m", "debugpy.adapter"}
-    }
-    dap.configurations.python = {
-        {
-            -- The first three options are required by nvim-dap
-            type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
-            request = "launch",
-            name = "Launch file",
-            -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
-            program = "${file}", -- This configuration will launch the current file if used.
-            pythonPath = function()
-                -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-                -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-                -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-                local cwd = vim.fn.getcwd()
-                if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-                    return cwd .. "/venv/bin/python"
-                elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-                    return cwd .. "/.venv/bin/python"
-                else
-                    return "/usr/bin/python"
-                end
-            end
-        }
-    }
-end
+-- function config.dap()
+--     local dap = require("dap")
+--
+--     dap.adapters.go = function(callback, config)
+--         local stdout = vim.loop.new_pipe(false)
+--         local handle
+--         local pid_or_err
+--         local port = 38697
+--         local opts = {
+--             stdio = { nil, stdout },
+--             args = { "dap", "-l", "127.0.0.1:" .. port },
+--             detached = true
+--         }
+--         handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+--             stdout:close()
+--             handle:close()
+--             if code ~= 0 then print("dlv exited with code", code) end
+--         end)
+--         assert(handle, "Error running dlv: " .. tostring(pid_or_err))
+--         stdout:read_start(function(err, chunk)
+--             assert(not err, err)
+--             if chunk then
+--                 vim.schedule(function()
+--                     require("dap.repl").append(chunk)
+--                 end)
+--             end
+--         end)
+--         -- Wait for delve to start
+--         vim.defer_fn(function()
+--             callback({ type = "server", host = "127.0.0.1", port = port })
+--         end, 100)
+--     end
+--     -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+--     dap.configurations.go = {
+--         { type = "go", name = "Debug", request = "launch", program = "${file}" },
+--         {
+--             type = "go",
+--             name = "Debug test", -- configuration for debugging test files
+--             request = "launch",
+--             mode = "test",
+--             program = "${file}"
+--         }, -- works with go.mod packages and sub packages
+--         {
+--             type = "go",
+--             name = "Debug test (go.mod)",
+--             request = "launch",
+--             mode = "test",
+--             program = "./${relativeFileDirname}"
+--         }
+--     }
+--
+--     dap.adapters.python = {
+--         type = "executable",
+--         command = os.getenv("HOME") ..
+--             "/.local/share/nvim/dapinstall/python_dbg/bin/python",
+--         args = { "-m", "debugpy.adapter" }
+--     }
+--     dap.configurations.python = {
+--         {
+--             -- The first three options are required by nvim-dap
+--             type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+--             request = "launch",
+--             name = "Launch file",
+--             -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+--
+--             program = "${file}", -- This configuration will launch the current file if used.
+--             pythonPath = function()
+--                 -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+--                 -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+--                 -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+--                 local cwd = vim.fn.getcwd()
+--                 if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+--                     return cwd .. "/venv/bin/python"
+--                 elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+--                     return cwd .. "/.venv/bin/python"
+--                 else
+--                     return "/usr/bin/python"
+--                 end
+--             end
+--         }
+--     }
+-- end
 
 return config
