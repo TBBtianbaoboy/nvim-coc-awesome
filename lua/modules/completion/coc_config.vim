@@ -95,10 +95,6 @@ nnoremap <silent><nowait> <space>le  :<C-u>CocList extensions<cr>
 nnoremap <silent> <Leader>cd :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 nnoremap <silent> <space>cf :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 
-"=================coc-git========================= 
-"@key 3: coc-list with coc-list for git status
-nnoremap <silent> <C-g>  :<C-u>CocList --normal gstatus<CR>
-
 "=================coc-yank========================= 
 "@key 4: keep yank history.use effectively.
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
