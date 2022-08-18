@@ -263,4 +263,17 @@ editor["Pocco81/HighStr.nvim"] = {
     end
 }
 
+-- @func: translator
+-- @keymap: gt -> 翻译 | <c-w>p -> 打开/关闭翻译窗口
+-- @status: true --------- all done
+editor["voldikss/vim-translator"] = {
+    opt = false,
+    config = function()
+        -- lua运行vim配置文件
+        vim.api.nvim_exec(
+            [[source ~/.config/nvim/lua/modules/editor/translate.vim]],
+            false)
+    end
+}
+
 return editor
