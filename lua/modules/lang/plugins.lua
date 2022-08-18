@@ -11,4 +11,13 @@ lang['fatih/vim-go'] = {
     config = conf.lang_go
 }
 
+-- @func: 运行代码片段
+-- @keymap: unknow
+-- @status: false
+lang['michaelb/sniprun'] = {
+    opt = false,
+    run = 'bash ./install.sh',
+    config = conf.lang_sniprun
+}
+
 return lang
