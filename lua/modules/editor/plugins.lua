@@ -248,4 +248,19 @@ editor["liuchengxu/vista.vim"] = {
             false)
     end
 }
+
+-- @func: symbols_outline
+-- @keymap: <leader>so -> 打开 | q -> 关闭 | p -> 打开悬浮窗口
+-- @status: true --------- all done
+editor["Pocco81/HighStr.nvim"] = {
+    opt = true,
+    ft = { "conf", "vim" },
+    config = function()
+        -- lua运行vim配置文件
+        vim.api.nvim_exec(
+            [[source ~/.config/nvim/lua/modules/editor/highlight.vim]],
+            false)
+    end
+}
+
 return editor
