@@ -142,4 +142,5 @@ let g:coc_global_extensions = [
       \'coc-cmake',
       \'coc-leetcode',
       \'coc-conventional',
+      \'coc-sh',
       \]
