@@ -50,10 +50,6 @@ nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>af <Plug>(coc-format-selected)
 nmap <Leader>af <Plug>(coc-format)
 
-" coc-translator
-nmap gt <Plug>(coc-translator-p)
-vmap gt <Plug>(coc-translator-pv)
-
 nmap <silent> gd <Plug>(coc-definition)zz
 nmap <silent> gr <Plug>(coc-references)zz
 nmap <silent> gy <Plug>(coc-type-definition)zz
@@ -134,7 +130,6 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-yaml',
       \'coc-git',
-      \'coc-translator',
       \'coc-yank',
       \'coc-word',
       \'coc-emoji',
