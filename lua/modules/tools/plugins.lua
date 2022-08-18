@@ -26,4 +26,11 @@ tools["gelguy/wilder.nvim"] = {
     requires = {{"romgrk/fzy-lua-native", after = "wilder.nvim"}}
 }
 
+-- @func: 消息提示
+-- @keymap: nil TODO
+-- @status: true ---------- all done
+tools["rcarriga/nvim-notify"] = {
+    opt = false,
+}
+
 return tools
