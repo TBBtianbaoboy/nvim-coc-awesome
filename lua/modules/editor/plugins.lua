@@ -249,8 +249,8 @@ editor["liuchengxu/vista.vim"] = {
     end
 }
 
--- @func: symbols_outline
--- @keymap: <leader>so -> 打开 | q -> 关闭 | p -> 打开悬浮窗口
+-- @func: highlight symbols
+-- @keymap: <F3> -> 打开 | <F4> -> 关闭 | :HSExport -> 导出 | : HSImport -> 导入
 -- @status: true --------- all done
 editor["Pocco81/HighStr.nvim"] = {
     opt = true,
