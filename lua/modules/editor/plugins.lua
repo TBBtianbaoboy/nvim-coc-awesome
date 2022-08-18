@@ -20,7 +20,7 @@ editor["itchyny/vim-cursorword"] = {
 }
 
 -- @func: 注释(结合使用了nvim_treesitter的子模块)
--- @keymap: n|gcc , v|gc
+-- @keymap: n|gcc , v|gc , n|gcip, n|dip
 -- @status: true ---------- all done
 editor["terrortylor/nvim-comment"] = {
     opt = false,
@@ -29,6 +29,12 @@ editor["terrortylor/nvim-comment"] = {
             hook = function()
                 require("ts_context_commentstring.internal").update_commentstring()
             end,
+            -- set cpp comment string
+            vim.cmd [[augroup set-commentstring-ag]],
+            vim.cmd [[autocmd!]],
+            vim.cmd [[autocmd BufEnter *.c,*.cpp,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
+            vim.cmd [[autocmd BufFilePost *.c,*.cpp,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
+            vim.cmd [[augroup END]],
         })
     end
 }
