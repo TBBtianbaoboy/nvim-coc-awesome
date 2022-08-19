@@ -19,5 +19,25 @@ lang['michaelb/sniprun'] = {
     run = 'bash ./install.sh',
     config = conf.lang_sniprun
 }
-
+lang["mfussenegger/nvim-dap"] = {
+	opt = true,
+	cmd = {
+		"DapSetLogLevel",
+		"DapShowLog",
+		"DapContinue",
+		"DapToggleBreakpoint",
+		"DapToggleRepl",
+		"DapStepOver",
+		"DapStepInto",
+		"DapStepOut",
+		"DapTerminate",
+	},
+	module = "dap",
+	config = conf.dap,
+}
+lang["rcarriga/nvim-dap-ui"] = {
+	opt = true,
+	after = "nvim-dap", -- Need to call setup after dap has been initialized.
+	config = conf.dapui,
+}
 return lang
