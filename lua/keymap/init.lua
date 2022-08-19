@@ -37,14 +37,18 @@ local plug_map = {
     ["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
     ["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
     -- Plugin Telescope
-    ["n|<Leader>cc"] = map_cu("CocList colors"):with_noremap()
-        :with_silent(),
-    ["n|<Leader>ff"] = map_cu("Telescope fd"):with_noremap():with_silent(),
+    ["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
     ["n|<Leader>fw"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
-    ["n|<Leader>fn"] = map_cu("DashboardNewFile"):with_noremap():with_silent(),
     ["n|<Leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
-    ["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap(),
+    ["n|<Leader>fg"] = map_cu("Telescope live_grep"):with_noremap(),
     ["n|<Leader>fk"] = map_cu("Telescope keymaps"):with_noremap():with_silent(),
+    ["n|<Leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
+    ["n|<Leader>fq"] = map_cu("Telescope frecency"):with_noremap():with_silent(),
+    ["n|<Leader>gf"] = map_cu("Telescope git_files"):with_noremap(),
+    ["n|<Leader>bi"] = map_cu("Telescope buildin"):with_noremap():with_silent(),
+    ["n|<Leader>ch"] = map_cu("Telescope command_history"):with_noremap():with_silent(),
+    ["n|<Leader>sh"] = map_cu("Telescope search_history"):with_noremap():with_silent(),
+    ["n|<Leader>cc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
     -- Plugin accelerate-jk
     ["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
     ["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
