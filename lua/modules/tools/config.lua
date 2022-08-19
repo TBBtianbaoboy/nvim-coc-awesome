@@ -1,39 +1,80 @@
 local config = {}
 
 function config.telescope()
+    vim.cmd([[packadd telescope-fzf-native.nvim]])
+    vim.cmd([[packadd sqlite.lua]])
+    vim.cmd([[packadd telescope-frecency.nvim]])
+
     require("telescope").setup {
         defaults = {
-            prompt_prefix = "🔭 ",
+            -- Default configuration for telescope goes here:
+            -- config_key = value,
+            layout_strategy = "horizontal",
+            prompt_prefix = "🔍 ",
             selection_caret = " ",
             layout_config = {
-                horizontal = { prompt_position = "bottom", results_width = 0.6 },
-                vertical = { mirror = false }
+                prompt_position = "bottom",
+                horizontal = {
+                    preview_width = 0.5,
+                },
             },
-            file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-            grep_previewer = require("telescope.previewers").vim_buffer_vimgrep
-                .new,
-            qflist_previewer = require("telescope.previewers").vim_buffer_qflist
-                .new,
-            file_sorter = require("telescope.sorters").get_fuzzy_file,
-            file_ignore_patterns = {},
-            generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+            entry_prefix = '',
+            initial_mode = "insert",
             path_display = { "absolute" },
-            winblend = 0,
-            border = {},
-            borderchars = {
-                "─", "│", "─", "│", "╭", "╮", "╯", "╰"
-            },
-            color_devicons = true,
-            use_less = true,
-            set_env = { ["COLORTERM"] = "truecolor" },
-            pickers = {
-                oldfiles = {
-                    include_current_session = true,
-                    cwd_only = true,
-                }
+            file_ignore_patterns = {},
+
+            -- mapping config TODO
+            mappings = {
+                i = {
+                    ["<C-/>"] = "which_key",
+                    ["<C-c>"] = false,
+                    ["<esc>"] = "close",
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-[>"] = "move_to_top",
+                    ["<C-]>"] = "move_to_bottom",
+                    ["<C-u>"] = "preview_scrolling_up",
+                    ["<C-d>"] = "preview_scrolling_down",
+                },
             }
+        },
+        -- packers config
+        pickers = {
+            -- picker_name = {
+            --   picker_config_key = value,
+            --   ...
+            -- }
+            grep_string = {
+                only_sort_text = true,
+            },
+            git_files = {
+                show_untracked = true,
+            },
+            colorscheme = {
+                enable_preview = true,
+            },
+        },
+        -- extensions config
+        extensions = {
+            -- extension_name = {
+            --   extension_config_key = value,
+            -- }
+            fzf = {
+                fuzzy = false, -- false will only do exact matching
+                override_generic_sorter = true, -- override the generic sorter
+                override_file_sorter = true, -- override the file sorter
+                case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                -- the default case_mode is "smart_case"
+            },
+            frecency = {
+                show_scores = true,
+                show_unindexed = true,
+                ignore_patterns = { "*.git/*", "*/tmp/*" },
+            },
         }
     }
+    require('telescope').load_extension('fzf')
+    require("telescope").load_extension("frecency")
 end
 
 function config.wilder()
