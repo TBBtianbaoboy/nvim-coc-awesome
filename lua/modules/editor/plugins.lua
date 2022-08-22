@@ -184,22 +184,29 @@ editor["rmagatti/auto-session"] = {
 -- }
 
 -- @func: 在vim 中运行 git 命令
--- @keymap: :G
+-- @keymap: ':Git', ':G' , 'n | <Space>G'
 -- @status: true ---------- all done
-editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
+editor["tpope/vim-fugitive"] = {
+    opt = true,
+    cmd = { "Git", "G" },
+}
 
--- @func: 修改变量的形式
--- @keymap: :crc crm crs 最常用，更多用法请查阅官网
+-----------------------------------------------------------------------
+-- @func: 修改变量形式
+-- @keymap: :'n | crc', 'n | crm', 'n | crs' 最常用，更多用法请查阅帮助手册
 -- @status: true ---------- all done
-editor["tpope/vim-abolish"] = { opt = false }
+-- @doc: 3
+editor["tpope/vim-abolish"] = {
+    opt = false,
+}
 
--- @func: 部分单词移动
--- @keymap: <alt>e | <alt>b
+-- @func: 单词切割
+-- @keymap: 'v | <alt>e', 'v | <alt>b', 'v | <alt>w' 最常用，更多用法请查阅帮助手册
 -- @status: true ---------- all done
+-- @doc: 18
 editor["chaoren/vim-wordmotion"] = {
     opt = false,
     config = function()
-        -- lua运行vim配置文件
         vim.api.nvim_exec(
             [[source ~/.config/nvim/lua/modules/editor/wordmotion.vim]],
             false)
@@ -209,22 +216,24 @@ editor["chaoren/vim-wordmotion"] = {
 -- @func: v V 框选
 -- @keymap: v -> 正选, V -> 反选(撤销)
 -- @status: true ---------- all done
+-- @doc: 41
 editor["terryma/vim-expand-region"] = {
     opt = false,
     config = function()
-        -- lua运行vim配置文件
         vim.api.nvim_exec(
             [[source ~/.config/nvim/lua/modules/editor/vim_expand_region.vim]],
             false)
     end
 }
 
--- @func: 自动代码换行整理
--- @keymap: gS -> 分散, gJ -> 合并
+-- @func: 代码行拆分或合并
+-- @keymap: gS -> 拆分, gJ -> 合并
 -- @status: true --------- all done
+-- @doc: 47
 editor["AndrewRadev/splitjoin.vim"] = {
     opt = false,
 }
+-----------------------------------------------------------------------
 
 -- @func: 自动调整窗口大小
 -- @keymap: nil
