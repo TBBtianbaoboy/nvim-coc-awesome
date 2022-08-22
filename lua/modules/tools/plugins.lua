@@ -64,4 +64,25 @@ tools["gelguy/wilder.nvim"] = {
     }
 }
 
+-- @func: 命令行模糊搜索以及自动补充
+-- @keymap: g?p | g?P | g?v | g?V | :DeleteDebugPrints
+-- @status: true ---------- all done
+tools["andrewferrier/debugprint.nvim"] = {
+    opt = true,
+    ft = {
+        "c",
+        "cpp",
+        "cxx",
+        "h",
+        "hpp",
+        "hxx",
+        "lua",
+        "py",
+        "sh",
+        "go",
+        "vim",
+        "zsh",
+    },
+    config = conf.debugprint,
+}
 return tools
