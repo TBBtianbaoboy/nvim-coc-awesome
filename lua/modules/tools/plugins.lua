@@ -64,11 +64,4 @@ tools["gelguy/wilder.nvim"] = {
     }
 }
 
--- @func: 消息提示
--- @keymap: nil TODO
--- @status: true ---------- all done
-tools["rcarriga/nvim-notify"] = {
-    opt = false,
-}
-
 return tools
