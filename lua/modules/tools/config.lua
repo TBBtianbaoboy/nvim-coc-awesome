@@ -152,4 +152,8 @@ function config.wilder()
     }))
 end
 
+function config.debugprint()
+    require("debugprint").setup()
+end
+
 return config
