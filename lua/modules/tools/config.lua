@@ -23,36 +23,45 @@ function config.telescope()
             path_display = { "absolute" },
             file_ignore_patterns = {},
 
-            -- mapping config TODO
+            -- mapping config ( all here )
             mappings = {
                 i = {
                     ["<C-/>"] = "which_key",
-                    ["<C-c>"] = false,
                     ["<esc>"] = "close",
                     ["<C-j>"] = "move_selection_next",
                     ["<C-k>"] = "move_selection_previous",
-                    ["<C-[>"] = "move_to_top",
-                    ["<C-]>"] = "move_to_bottom",
-                    ["<C-u>"] = "preview_scrolling_up",
+                    ["<C-p>"] = "move_to_top",
+                    ["<C-n>"] = "move_to_bottom",
+                    ["<C-b"] = "preview_scrolling_up",
                     ["<C-d>"] = "preview_scrolling_down",
+                    ["<C-c>"] = false,
+                    ["<Up>"] = false,
+                    ["<Down>"] = false,
+                    ["<PageDown>"] = false,
+                    ["<PageUp>"] = false,
+                    ["<C-x>"] = "select_horizontal",
+                    ["<C-v>"] = "select_vertical",
+                    ["<C-t>"] = "select_tab",
+                    ["<M-q>"] = false,
+                    ["<C-q>"] = false,
+                    ["<C-l>"] = false,
                 },
             }
         },
-        -- packers config
         pickers = {
-            -- picker_name = {
-            --   picker_config_key = value,
-            --   ...
-            -- }
-            grep_string = {
-                only_sort_text = true,
-            },
-            git_files = {
-                show_untracked = true,
-            },
             colorscheme = {
                 enable_preview = true,
             },
+            -------git_commits
+            -- - `<cr>`: checks out the currently selected commit
+            -- - `<C-r>m`: resets current branch to selected commit using mixed mode
+            -- - `<C-r>s`: resets current branch to selected commit using soft mode
+            -- - `<C-r>h`: resets current branch to selected commit using hard mode
+            -------git_status
+            -- - `<Tab>`: stages or unstages the currently selected file
+            -- - `<cr>`: opens the currently selected file
+
+
         },
         -- extensions config
         extensions = {
@@ -71,7 +80,7 @@ function config.telescope()
                 show_unindexed = true,
                 ignore_patterns = { "*.git/*", "*/tmp/*" },
             },
-        }
+        },
     }
     require('telescope').load_extension('fzf')
     require("telescope").load_extension("frecency")
