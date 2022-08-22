@@ -16,7 +16,7 @@ end
 local function load_options()
     local global_local = {
         termguicolors = true,
-        mouse = "a",
+        mouse = "",
         errorbells = true,
         visualbell = true,
         hidden = true,
@@ -74,7 +74,7 @@ local function load_options()
         foldlevelstart = 99,
         ruler = true,
         cursorline = true, --高亮显示当前行
-        cursorcolumn = false, --高亮显示当前列
+        cursorcolumn = true, --高亮显示当前列
         list = true,
         showtabline = 2,
         winwidth = 30,
