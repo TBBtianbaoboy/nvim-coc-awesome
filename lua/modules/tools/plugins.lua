@@ -64,8 +64,8 @@ tools["gelguy/wilder.nvim"] = {
     }
 }
 
--- @func: 命令行模糊搜索以及自动补充
--- @keymap: g?p | g?P | g?v | g?V | :DeleteDebugPrints
+-- @func: 调试输出
+-- @keymap: g?v | g?V | g?p | g?P
 -- @status: true ---------- all done
 tools["andrewferrier/debugprint.nvim"] = {
     opt = true,
@@ -85,4 +85,35 @@ tools["andrewferrier/debugprint.nvim"] = {
     },
     config = conf.debugprint,
 }
+
+
+-- @func: ascii image in nvim terminal
+-- @keymap: nil
+-- @status: true ---------- all done
+-- @Manually: 需要手动安装 ascii-image-converter 并置于 $PATH
+tools["samodostal/image.nvim"] = {
+    opt = false,
+    requires = {
+        {
+            "nvim-lua/plenary.nvim",
+            opt = false,
+        },
+    },
+    config = conf.image,
+}
+
+-- @func: emoji input
+-- @keymap: 'i | <A-m>'
+-- @status: true ---------- all done
+-- @Manually: 需要手动安装 ascii-image-converter 并置于 $PATH
+tools["WilsonOh/emoji_picker-nvim"] = {
+    opt = true,
+    event = "InsertEnter",
+    config = function()
+        require("emoji_picker").setup()
+        vim.keymap.set("i", "<A-m>", "<cmd>EmojiPicker<cr>")
+    end,
+}
+
+
 return tools
