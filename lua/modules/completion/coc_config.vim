@@ -138,4 +138,6 @@ let g:coc_global_extensions = [
       \'coc-leetcode',
       \'coc-conventional',
       \'coc-sh',
+      \'coc-rust-analyzer',
+      \'coc-toml',
       \]

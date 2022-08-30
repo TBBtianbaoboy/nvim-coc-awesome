@@ -105,7 +105,6 @@ tools["samodostal/image.nvim"] = {
 -- @func: emoji input
 -- @keymap: 'i | <A-m>'
 -- @status: true ---------- all done
--- @Manually: 需要手动安装 ascii-image-converter 并置于 $PATH
 tools["WilsonOh/emoji_picker-nvim"] = {
     opt = true,
     event = "InsertEnter",
