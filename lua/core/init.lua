@@ -50,11 +50,29 @@ local leader_map = function()
     vim.api.nvim_set_keymap("x", " ", "", { noremap = true })
 end
 
+code_annotation_for_code = function()
+    -- get current line
+    local line = vim.api.nvim_get_current_line()
+    -- set current line
+    vim.api.nvim_set_current_line(line .. "// @Annotation: ")
+end
+
+code_brief_for_function = function()
+    -- get current line
+    local line = vim.api.nvim_get_current_line()
+    -- set current line
+    vim.api.nvim_set_current_line(line .. "// @Brief: ")
+end
+
 local load_core = function()
     local pack = require("core.pack")
     createdir()
     disable_distribution_plugins()
     leader_map()
+
+    -- set map to call code_annotation_for_function
+    vim.api.nvim_set_keymap("n", "<leader>ca", "O<ESC>:lua code_annotation_for_code()<CR>A", { noremap = true })
+    vim.api.nvim_set_keymap("n", "<leader>cb", "O<ESC>:lua code_brief_for_function()<CR>A", { noremap = true })
 
     pack.ensure_plugins()
     vim.g.gruvbox_contrast_dark = 'hard'
