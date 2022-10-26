@@ -28,7 +28,6 @@ local def_map = {
     ["i|<C-b>"] = map_cmd("<Left>"):with_noremap(), -- 光标向行首移动
     ["i|<C-a>"] = map_cmd("<Esc>^i"):with_noremap(), -- 光标跳转到行首
     ["i|<C-e>"] = map_cmd("<End>"):with_noremap(), -- 光标跳转到行尾
-    ["i|<C-r>"] = map_cmd('copilot#Accept("")'):with_expr(), -- copilot auto complement
     ["i|<C-f>"] = map_cmd("<Right>"):with_noremap(), -- 光标向行尾移动
     ["i|<C-d>"] = map_cmd("<Del>"):with_noremap(), -- 光标向后删除-- 另外<C-h> 是光标向前删除
     ["i|<C-k>"] = map_cmd("()<Esc>i"):with_noremap(), -- 增加()

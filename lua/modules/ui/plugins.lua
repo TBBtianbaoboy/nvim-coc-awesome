@@ -65,4 +65,12 @@ ui["akinsho/nvim-bufferline.lua"] = {
     config = conf.nvim_bufferline
 }
 
+-- @func: 迷你地图
+-- @keymap: <leader>mm -> 打开/关闭地图 | <leader>mf -> 进入地图
+-- @status: true ---------- all done
+ui["gorbit99/codewindow.nvim"] = {
+    opt = false,
+    config = conf.codewindow
+}
+
 return ui

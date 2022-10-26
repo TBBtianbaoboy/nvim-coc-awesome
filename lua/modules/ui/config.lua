@@ -218,4 +218,10 @@ function config.gruvbox()
     vim.cmd [[highlight link TelescopeSelection SignColumn]]
 end
 
+function config.codewindow()
+    local codewindow = require('codewindow')
+    codewindow.setup()
+    codewindow.apply_default_keybinds()
+end
+
 return config

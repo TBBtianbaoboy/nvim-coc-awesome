@@ -22,13 +22,13 @@ function config.nvim_treesitter()
         ensure_installed = "all",
         highlight = { enable = true, disable = { "vim" } },
         -- label 2
-        rainbow = {
-            enable = true,
-            extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-            max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
-        },
+        -- rainbow = {
+        --   enable = true,
+        --   extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+        --   max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
+        --},
         -- label 3
-        context_commentstring = { enable = true, enable_autocmd = false },
+        -- context_commentstring = { enable = true, enable_autocmd = false },
         -- label 4
         matchup = { enable = true },
     }

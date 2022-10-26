@@ -26,9 +26,12 @@ editor["terrortylor/nvim-comment"] = {
     opt = false,
     config = function()
         require("nvim_comment").setup({
-            hook = function()
-                require("ts_context_commentstring.internal").update_commentstring()
-            end,
+            -- hook = function()
+            --     local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+            --     if filetype ~= "cpp" or filetype ~= "c" or filetype ~= "h" or filetype ~= "cc" then
+            --         require("ts_context_commentstring.internal").update_commentstring()
+            --     end
+            -- end,
             -- set cpp comment string
             vim.cmd [[augroup set-commentstring-ag]],
             vim.cmd [[autocmd!]],
@@ -52,19 +55,19 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 -- @func: 给括号增加颜色(nvim_treesitter的子模块)
 -- @keymap: conf.nvim_treesitter 的label 2
 -- @status: true ---------- all done
-editor["p00f/nvim-ts-rainbow"] = {
-    opt = true,
-    after = "nvim-treesitter",
-    event = "BufRead"
-}
+-- editor["p00f/nvim-ts-rainbow"] = {
+--     opt = true,
+--     after = "nvim-treesitter",
+--     event = "BufRead"
+-- }
 
 -- @func: 自动根据文件类型进行注释(nvim_treesitter的子模块)
 -- @keymap: conf.nvim_treesitter 的label 3
 -- @status: true ---------- all done
-editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
-    opt = true,
-    after = "nvim-treesitter"
-}
+-- editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
+--     opt = true,
+--     after = "nvim-treesitter"
+-- }
 
 -- @func: 显示当前光标在代码中所处的位置(nvim_treesitter的子模块)
 -- @keymap: nil
