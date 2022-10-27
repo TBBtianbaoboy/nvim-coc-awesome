@@ -140,4 +140,6 @@ let g:coc_global_extensions = [
       \'coc-sh',
       \'coc-rust-analyzer',
       \'coc-toml',
+      \'coc-sumneko-lua',
+      \'coc-explorer',
       \]

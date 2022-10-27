@@ -121,7 +121,11 @@ tools["folke/noice.nvim"] = {
     opt = true,
     event = "VimEnter",
     config = function()
-        require("noice").setup()
+        require("noice").setup({
+            cmdline = {
+                view = "cmdline",
+            },
+        })
     end,
     requires = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -133,5 +137,29 @@ tools["folke/noice.nvim"] = {
     }
 }
 
+-- @func: show json path in statusline
+-- @keymap: nil
+-- @status: true ---------- all done
+tools["phelipetls/jsonpath.nvim"] = {
+    opt = true,
+    ft = "json",
+    config = function()
+        -- show json path in the winbar
+        if vim.fn.exists("+winbar") == 1 then
+            vim.opt_local.winbar = "%{%v:lua.require'jsonpath'.get()%}"
+        end
+        -- send json path to clipboard
+        vim.keymap.set("n", "y<C-p>", function()
+            vim.fn.setreg("+", require("jsonpath").get())
+        end, { desc = "copy json path", buffer = true })
+    end,
+}
+
+-- @func: open file in github on browser
+-- @keymap: :OpenInGHFile | :OpenInGHRepo
+-- @status: true ---------- all done
+tools["almo7aya/openingh.nvim"] = {
+    opt = false,
+}
 
 return tools

@@ -58,6 +58,9 @@
   // install way: CocInstall coc-explorer
   //add icon
   "explorer.icon.enableNerdfont": true,
+  // make open directory when reopen buffer
+  // <leader>le open coc extension and <tab> to set coc extension
+  "explorer.file.reveal.auto": true,
   //key mapping
   "explorer.keyMappings.global": {
     "i": false, // cancel default mapkey
