@@ -160,14 +160,16 @@ editor["norcalli/nvim-colorizer.lua"] = {
     config = conf.nvim_colorizer
 }
 
--- @func: 自动保存并记录会话的位置，退出后进入时会恢复位置
+-- @func: auto save file cursor position and restore it when reopen
 -- @keymap: nil
 -- @status: true ---------- all done
-editor["rmagatti/auto-session"] = {
-    opt = true,
-    cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
-    config = conf.auto_session
-}
+-- @deprecated: true
+-- @reason: coc-list has provided this function(use default configuration)
+-- editor["rmagatti/auto-session"] = {
+--     opt = true,
+--     cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+--     config = conf.auto_session
+-- }
 
 ----------------------------------待扩展
 -- @func: 未知
