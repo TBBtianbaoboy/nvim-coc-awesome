@@ -241,10 +241,56 @@ editor["AndrewRadev/splitjoin.vim"] = {
 -- @func: 自动调整窗口大小
 -- @keymap: nil
 -- @status: true --------- all done
-editor["beauwilliams/focus.nvim"] = {
+-- @deprecated: true
+-- editor["beauwilliams/focus.nvim"] = {
+--     opt = false,
+--     config = function()
+--         require("focus").setup()
+--     end
+-- }
+
+-- @func: 自动调整窗口大小
+-- @keymap: <C-w>z -> 最大化 | <C-w>= -> 恢复 | <C-w>| -> 垂直最大化 | <C-w>_ -> 水平最大化
+-- @status: true --------- all done
+editor["anuvyklack/windows.nvim"] = {
     opt = false,
+    requires = {
+        "anuvyklack/middleclass",
+        "anuvyklack/animation.nvim"
+    },
     config = function()
-        require("focus").setup()
+        vim.o.winwidth = 10
+        vim.o.winminwidth = 10
+        vim.o.equalalways = false
+        require("windows").setup({
+            autowidth = { --		       |windows.autowidth|
+                enable = true,
+                winwidth = 50, --		        |width = equal+50|
+                filetype = { --	      |windows.autowidth.filetype|
+                    help = 2,
+                },
+            },
+            -- 忽视文件
+            ignore = { --			  |windows.ignore|
+                buftype = { "quickfix" },
+                filetype = { "coc-explorer", "NvimTree", "neo-tree", "undotree", "gundo" }
+            },
+            -- 展示动画
+            animation = {
+                enable = true,
+                duration = 300,
+                fps = 30,
+                easing = "in_out_sine"
+            }
+        })
+        local function cmd(command)
+            return table.concat({ '<Cmd>', command, '<CR>' })
+        end
+
+        vim.keymap.set('n', '<C-w>z', cmd 'WindowsMaximize')
+        vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
+        vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
+        vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
     end
 }
 

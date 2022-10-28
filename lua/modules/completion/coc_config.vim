@@ -95,6 +95,9 @@ nnoremap <silent> <space>cf :exe 'CocList -I --normal --input='.expand('<cword>'
 "@key 4: keep yank history.use effectively.
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+" fix p paste cover
+xnoremap <expr> p 'pgv"'.v:register.'y'
+
 "=================coc-highlight========================= 
 "@key 5: highlight hex
 " Highlight the symbol and its references when holding the cursor.
