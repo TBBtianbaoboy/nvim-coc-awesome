@@ -187,4 +187,16 @@ tools["uga-rosa/ccc.nvim"] = {
     end,
 }
 
+-- @func: show nvim register and interactive with it
+-- @keymap: "r -> open register | "p("P) -> open register and paste
+-- @status: true ---------- all done
+tools["gennaro-tedesco/nvim-peekup"] = {
+    opt = false,
+    config = function()
+        vim.api.nvim_exec(
+            [[source ~/.config/nvim/lua/modules/tools/register.vim]],
+            false)
+    end
+}
+
 return tools
