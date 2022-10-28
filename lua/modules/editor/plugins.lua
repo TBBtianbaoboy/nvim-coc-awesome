@@ -35,8 +35,8 @@ editor["terrortylor/nvim-comment"] = {
             -- set cpp comment string
             vim.cmd [[augroup set-commentstring-ag]],
             vim.cmd [[autocmd!]],
-            vim.cmd [[autocmd BufEnter *.c,*.cpp,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
-            vim.cmd [[autocmd BufFilePost *.c,*.cpp,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
+            vim.cmd [[autocmd BufEnter *.c,*.cc,*.cpp,*.hpp,*.h,*.json :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
+            vim.cmd [[autocmd BufFilePost *.c,*.cc,*.cpp,*.hpp,*.h,*.json :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")]],
             vim.cmd [[augroup END]],
         })
     end
