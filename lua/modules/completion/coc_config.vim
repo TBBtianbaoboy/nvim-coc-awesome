@@ -107,12 +107,15 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "@key 5: directory tree
 nmap <space>e <Cmd>CocCommand explorer<CR>
 
+ " coc-lists no custom keymap
+ " coc-actions no custom keymap
+ " coc-pairs no custom keymap
+ " coc-prettier no custom keymap
 let g:coc_global_extensions = [
       \'coc-lists',
       \'coc-actions',
       \'coc-pairs',
       \'coc-highlight',
-      \'coc-lightbulb',
       \
       \'coc-prettier',
       \'coc-markdownlint',
