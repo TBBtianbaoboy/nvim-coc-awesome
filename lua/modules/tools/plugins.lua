@@ -165,17 +165,17 @@ tools["almo7aya/openingh.nvim"] = {
 -- @func: project manager
 -- @keymap: :Ide*
 -- @status: true ---------- TODO
-tools["Dax89/IDE.nvim"] = {
-    opt = false,
-    requires = {
-       {"nvim-lua/plenary.nvim"},
-       {"rcarriga/nvim-notify"},   -- Notifications Popup (Optional)
-       {"stevearc/dressing.nvim"}, -- Improved UI (Optional)
-       {"mfussenegger/nvim-dap"} , -- DAP Support (Optional)
-       {"rcarriga/nvim-dap-ui"},   -- DAP-UI Support (Optional)
-    },
-    -- config = conf.ide,
-}
+-- tools["Dax89/IDE.nvim"] = {
+--     opt = false,
+--     requires = {
+--        {"nvim-lua/plenary.nvim"},
+--        {"rcarriga/nvim-notify"},   -- Notifications Popup (Optional)
+--        {"stevearc/dressing.nvim"}, -- Improved UI (Optional)
+--        {"mfussenegger/nvim-dap"} , -- DAP Support (Optional)
+--        {"rcarriga/nvim-dap-ui"},   -- DAP-UI Support (Optional)
+--     },
+--     -- config = conf.ide,
+-- }
 
 -- @func: color picker
 -- @keymap: :CccPick ( hjkl | i | o | a | q | g | w(W) | b(B) | d | s | H | M | L | 1-9)
