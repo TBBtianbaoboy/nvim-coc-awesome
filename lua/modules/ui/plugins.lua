@@ -86,24 +86,24 @@ ui["gorbit99/codewindow.nvim"] = {
 -- @func: 唐诗三百首
 -- @keymap: <leader>mm -> 打开/关闭地图 | <leader>mf -> 进入地图
 -- @status: true ---------- all done
-ui["haolian9/guwen.nvim"] = {
-    opt = true,
-    event = "CmdlineEnter",
-    config = function()
-        require("guwen.setup")({
-            -- optional: 自定义 hi group
-            NormalFloat = { ctermfg = 8 },
-            FloatBorder = { ctermfg = 240 },
-        })
-        vim.api.nvim_create_user_command("Guwen", function(args)
-            require("guwen")[args.args]()
-        end, {
-            nargs = 1,
-            complete = function()
-                return require 'guwen'._completion
-            end,
-        })
-    end
-}
+-- ui["haolian9/guwen.nvim"] = {
+--     opt = true,
+--     event = "CmdlineEnter",
+--     config = function()
+--         require("guwen.setup")({
+--             -- optional: 自定义 hi group
+--             NormalFloat = { ctermfg = 8 },
+--             FloatBorder = { ctermfg = 240 },
+--         })
+--         vim.api.nvim_create_user_command("Guwen", function(args)
+--             require("guwen")[args.args]()
+--         end, {
+--             nargs = 1,
+--             complete = function()
+--                 return require 'guwen'._completion
+--             end,
+--         })
+--     end
+-- }
 
 return ui

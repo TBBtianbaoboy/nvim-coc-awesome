@@ -60,14 +60,14 @@ function config.nvim_gps()
     })
 end
 
-function config.autotag()
-    require("nvim-ts-autotag").setup({
-        filetypes = {
-            "html", "xml", "javascript", "typescriptreact", "javascriptreact",
-            "vue", "markdown",
-        }
-    })
-end
+-- function config.autotag()
+--     require("nvim-ts-autotag").setup({
+--         filetypes = {
+--             "html", "xml", "javascript", "typescriptreact", "javascriptreact",
+--             "vue", "markdown",
+--         }
+--     })
+-- end
 
 function config.nvim_colorizer() require("colorizer").setup() end
 

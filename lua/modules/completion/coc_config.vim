@@ -111,6 +111,9 @@ nmap <space>e <Cmd>CocCommand explorer<CR>
  " coc-actions no custom keymap
  " coc-pairs no custom keymap
  " coc-prettier no custom keymap
+ " coc-explorer setting in coc-settings.json
+ " coc-toml is used for .toml file(with format on save and more)
+ " coc-sh is used for .sh file(require bash-language-server)
 let g:coc_global_extensions = [
       \'coc-lists',
       \'coc-actions',
@@ -127,7 +130,6 @@ let g:coc_global_extensions = [
       \'coc-vetur',
       \
       \'coc-clangd',
-      \'coc-lua',
       \'coc-go',
       \'coc-pyright',
       \'coc-rust-analyzer',
@@ -144,7 +146,6 @@ let g:coc_global_extensions = [
       \'coc-leetcode',
       \'coc-conventional',
       \'coc-sh',
-      \'coc-rust-analyzer',
       \'coc-toml',
       \'coc-sumneko-lua',
       \'coc-explorer',

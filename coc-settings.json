@@ -1,3 +1,4 @@
+// <leader>le open coc extension and <tab> to set coc extension
 {
   "languageserver": {
     "go": {
@@ -54,12 +55,16 @@
   ],
   "Lua.telemetry.enable": true,
   "git.enableGutters": false,
-  //======coc-explorer config====== TODO
-  // install way: CocInstall coc-explorer
-  //add icon
+
+  //==========================coc-explorer config==========================
+  //// install way: CocInstall coc-explorer
   "explorer.icon.enableNerdfont": true,
+  "explorer.mouseMode": "none",
+  "explorer.position": "left",
+  //// is focus on explorer when open it
+  "explorer.focus": true,
+  "explorer.icon.source": "nvim-web-devicons",
   // make open directory when reopen buffer
-  // <leader>le open coc extension and <tab> to set coc extension
   "explorer.file.reveal.auto": true,
   //key mapping
   "explorer.keyMappings.global": {
@@ -144,3 +149,4 @@
     ">>": "gitUnstage"
   }
 }
+//========================== end ==========================

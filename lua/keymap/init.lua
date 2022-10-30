@@ -12,10 +12,16 @@ local plug_map = {
     ["n|]g"] = map_cr("Gitsigns next_hunk"):with_noremap():with_silent(),
     ["n|]s"] = map_cr("Gitsigns stage_hunk"):with_noremap():with_silent(),
     ["n|]u"] = map_cr("Gitsigns undo_stage_hunk"):with_noremap():with_silent(),
-    ["n|]p"] = map_cr("Gitsigns preview_hunk"):with_noremap():with_silent(),
+    ["n|]ph"] = map_cr("Gitsigns preview_hunk"):with_noremap():with_silent(),
     ["n|]b"] = map_cr("Gitsigns blame_line"):with_noremap():with_silent(),
     ["n|]a"] = map_cr("Gitsigns select_hunk"):with_noremap():with_silent(),
     ["n|]r"] = map_cr("Gitsigns reset_hunk"):with_noremap():with_silent(),
+    ["n|]f"] = map_cr("CocCommand git.foldUnchanged"):with_noremap():with_silent(),
+    ["n|]ch"] = map_cr("CocCommand git.keepCurrent"):with_noremap():with_silent(),
+    ["n|]co"] = map_cr("CocCommand git.keepIncoming"):with_noremap():with_silent(),
+    ["n|<Leader>G"] = map_cu("Git"):with_noremap():with_silent(),
+    ["n|]ps"] = map_cr("G push"):with_noremap():with_silent(),
+    ["n|]pl"] = map_cr("G pull"):with_noremap():with_silent(),
     -- symbols_outline
     ["n|<leader>so"] = map_cr("Vista"):with_noremap():with_silent(),
     -- 缓冲线选择/删除快捷键
@@ -30,12 +36,8 @@ local plug_map = {
     ["n|<leader>9"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent(),
     ["n|gb"] = map_cu("BufferLinePick"):with_noremap():with_silent(),
     ["n|gB"] = map_cu("BufferLinePickClose"):with_noremap():with_silent(),
-    -- git 相关
     -- ["n|<Leader>g"] = map_cu("lua require('FTerm').run('gitui')"):with_noremap()
     --     :with_silent(),
-    ["n|<Leader>G"] = map_cu("Git"):with_noremap():with_silent(),
-    ["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
-    ["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
     -- Plugin Telescope
     ["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
     ["n|<Leader>fw"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),

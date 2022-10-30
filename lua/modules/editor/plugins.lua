@@ -55,6 +55,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 -- @func: 给括号增加颜色(nvim_treesitter的子模块)
 -- @keymap: conf.nvim_treesitter 的label 2
 -- @status: true ---------- all done
+-- @deprecated: unnecessary
 -- editor["p00f/nvim-ts-rainbow"] = {
 --     opt = true,
 --     after = "nvim-treesitter",
@@ -64,6 +65,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 -- @func: 自动根据文件类型进行注释(nvim_treesitter的子模块)
 -- @keymap: conf.nvim_treesitter 的label 3
 -- @status: true ---------- all done
+-- @deprecated: replace by nvim_comment plugin, nvim_comment can fix the bug of this plugin
 -- editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
 --     opt = true,
 --     after = "nvim-treesitter"
@@ -81,10 +83,11 @@ editor["SmiteshP/nvim-gps"] = {
 -- @func: 自动打标签
 -- @keymap: nil
 -- @status: true ---------- all done
-editor["windwp/nvim-ts-autotag"] = {
-    opt = true,
-    config = conf.autotag
-}
+-- @deprecated: replace by coc extensions - coc-pair
+-- editor["windwp/nvim-ts-autotag"] = {
+--     opt = true,
+--     config = conf.autotag
+-- }
 
 -- @func: %跳装匹配的扩展(nvim_treesitter的子模块)
 -- @keymap: %(conf.nvim_treesitter的label 4)
