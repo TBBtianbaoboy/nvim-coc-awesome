@@ -114,6 +114,8 @@ nmap <space>e <Cmd>CocCommand explorer<CR>
  " coc-explorer setting in coc-settings.json
  " coc-toml is used for .toml file(with format on save and more)
  " coc-sh is used for .sh file(require bash-language-server)
+ " coc-git is used for git repo(keymap/init.lua)
+ " coc-cmake is used for cmake file, no custom keymap
 let g:coc_global_extensions = [
       \'coc-lists',
       \'coc-actions',
