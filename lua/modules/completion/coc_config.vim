@@ -151,4 +151,5 @@ let g:coc_global_extensions = [
       \'coc-toml',
       \'coc-sumneko-lua',
       \'coc-explorer',
+      \'coc-python'
       \]

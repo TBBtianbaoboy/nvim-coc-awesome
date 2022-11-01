@@ -182,7 +182,7 @@ tools["almo7aya/openingh.nvim"] = {
 -- @status: true ---------- all done
 tools["uga-rosa/ccc.nvim"] = {
     opt = false,
-    config = function ()
+    config = function()
         require("ccc").setup()
     end,
 }
@@ -197,6 +197,21 @@ tools["gennaro-tedesco/nvim-peekup"] = {
             [[source ~/.config/nvim/lua/modules/tools/register.vim]],
             false)
     end
+}
+
+-- @func: generate code image
+-- @keymap: nil
+-- @status: true ---------- all done
+-- @requires: silicon(https://github.com/aloxaf/silicon)
+-- @requires: mkdir -p $HOME/Pictures/code
+tools["narutoxy/silicon.lua"] = {
+    opt = false,
+    requires = {
+        {
+            "nvim-lua/plenary.nvim",
+        },
+    },
+    config = conf.silicon,
 }
 
 return tools

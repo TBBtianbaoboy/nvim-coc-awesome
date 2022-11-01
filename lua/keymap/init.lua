@@ -94,6 +94,10 @@ local plug_map = {
     ["n|<F11>"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
     ["n|<leader>do"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
     ["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
+    -- Plugin silicon
+    ["v|<C-s>"] = map_cr("lua require('silicon').visualise_api({to_clip = true})"):with_noremap():with_silent(),
+    ["v|<C-a>"] = map_cr("lua require('silicon').visualise_api({show_buf = true})"):with_noremap():with_silent(),
+
 }
 
 bind.nvim_load_mapping(plug_map)
