@@ -34,6 +34,14 @@ ui["morhetz/gruvbox"] = {
     as = "morhetz",
     config = conf.gruvbox
 }
+-- @func: vim主题
+-- @keymap: <leader>cc -> 切换主题
+-- @status: true ---------- all done
+ui["Tsuzat/NeoSolarized.nvim"] = {
+    opt = false,
+    config = conf.NeoSolarized,
+}
+
 -- @func: 下方状态栏
 -- @keymap: nil
 -- @status: true ---------- all done
@@ -105,5 +113,4 @@ ui["gorbit99/codewindow.nvim"] = {
 --         })
 --     end
 -- }
-
 return ui

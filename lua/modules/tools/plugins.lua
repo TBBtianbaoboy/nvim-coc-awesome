@@ -129,11 +129,21 @@ tools["folke/noice.nvim"] = {
     end,
     requires = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
+        { "MunifTanjim/nui.nvim" },
         -- OPTIONAL:
         --   `nvim-notify` is only needed, if you want to use the notification view.
         --   If not available, we use `mini` as the fallback
-        "rcarriga/nvim-notify",
+        { "rcarriga/nvim-notify"
+            , opt = true
+            , module = "notify"
+            , config = function()
+                require("notify").setup({
+                    stages = "fade_in_slide_out",
+                    top_down = false;
+                    background_colour = "#000000",
+                })
+            end
+        },
     }
 }
 
@@ -200,7 +210,7 @@ tools["gennaro-tedesco/nvim-peekup"] = {
 }
 
 -- @func: generate code image
--- @keymap: nil
+-- @keymap: v | <c-s> -> copy image to clipboard , v | <c-a> -> save image to file
 -- @status: true ---------- all done
 -- @requires: silicon(https://github.com/aloxaf/silicon)
 -- @requires: mkdir -p $HOME/Pictures/code
