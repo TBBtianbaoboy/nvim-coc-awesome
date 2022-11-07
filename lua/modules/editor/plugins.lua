@@ -339,13 +339,4 @@ editor["voldikss/vim-translator"] = {
     end
 }
 
--- @func: note writer helper
--- @keymap: TODO
--- @status: true --------- all done
-editor["gaoDean/autolist.nvim"] = {
-    opt = true,
-    ft = { "markdown" },
-    config = conf.autolist,
-}
-
 return editor

@@ -40,4 +40,16 @@ lang["rcarriga/nvim-dap-ui"] = {
 	after = "nvim-dap", -- Need to call setup after dap has been initialized.
 	config = conf.dapui,
 }
+
+-- @func: xmake entension
+-- @keymap: nil
+-- @status: true ---------- all done
+lang['luzhlon/xmake.vim'] = {
+    opt = true,
+    ft = 'xmake',
+    requires = {
+        {'luzhlon/x.vim'},
+        {'luzhlon/qrun.vim'},
+    },
+}
 return lang
