@@ -1,3 +1,7 @@
+# Weekly
+
+2022 Nov 07
+This Week in Neovim #17 OK
 2022 Oct 31
 This Week in Neovim #16 OK
 2022 Oct 24
@@ -19,3 +23,9 @@ This Week in Neovim #9 OK
 
 > ~/.config/coc/extensions/node_modules
 > TODO
+
+# nvim manager
+
+```sh
+cargo install --git https://github.com/MordechaiHadad/bob.git
+```
