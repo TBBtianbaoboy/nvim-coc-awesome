@@ -117,35 +117,36 @@ tools["WilsonOh/emoji_picker-nvim"] = {
 -- @func: command line pro
 -- @keymap: : | ? | /
 -- @status: true ---------- all done
-tools["folke/noice.nvim"] = {
-    opt = true,
-    event = "VimEnter",
-    config = function()
-        require("noice").setup({
-            cmdline = {
-                view = "cmdline",
-            },
-        })
-    end,
-    requires = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        { "MunifTanjim/nui.nvim" },
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
-        { "rcarriga/nvim-notify"
-            , opt = true
-            , module = "notify"
-            , config = function()
-                require("notify").setup({
-                    stages = "fade_in_slide_out",
-                    top_down = false;
-                    background_colour = "#000000",
-                })
-            end
-        },
-    }
-}
+-- @Deprecated: delete this can fix rename bug
+-- tools["folke/noice.nvim"] = {
+--     opt = true,
+--     event = "VimEnter",
+--     config = function()
+--         require("noice").setup({
+--             cmdline = {
+--                 view = "cmdline",
+--             },
+--         })
+--     end,
+--     requires = {
+--         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--         { "MunifTanjim/nui.nvim" },
+--         -- OPTIONAL:
+--         --   `nvim-notify` is only needed, if you want to use the notification view.
+--         --   If not available, we use `mini` as the fallback
+--         { "rcarriga/nvim-notify"
+--             , opt = true
+--             , module = "notify"
+--             , config = function()
+--                 require("notify").setup({
+--                     stages = "fade_in_slide_out",
+--                     top_down = false;
+--                     background_colour = "#000000",
+--                 })
+--             end
+--         },
+--     }
+-- }
 
 -- @func: show json path in statusline
 -- @keymap: nil
