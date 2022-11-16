@@ -247,15 +247,8 @@ end
 
 function config.silicon()
     require('silicon').setup({
-        theme = "Dracula",
-        output = string.format(
-            "/home/aico/Pictures/code/Aico_%s-%s-%s_%s-%s.png",
-            os.date("%Y"),
-            os.date("%m"),
-            os.date("%d"),
-            os.date("%H"),
-            os.date("%M")
-        ), -- auto generate file name based on time (absolute or relative to cwd)
+        theme = "auto",
+        output = "/home/aico/Pictures/code/Aico_$year-$month-$date-$time.png",
         bgColor = vim.g.terminal_color_5,
         bgImage = "", -- path to image, must be png
         roundCorner = true,
