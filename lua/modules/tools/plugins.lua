@@ -210,6 +210,22 @@ tools["gennaro-tedesco/nvim-peekup"] = {
     end
 }
 
+-- @func: show nvim buffer and interactive with it
+-- @keymap: <leader>b
+-- @status: true ---------- all done
+tools["j-morano/buffer_manager.nvim"] = {
+    opt = false,
+    requires = {
+        {
+            "nvim-lua/plenary.nvim",
+            opt = false,
+        },
+    },
+    config = function()
+        require("buffer_manager").setup()
+    end
+}
+
 -- @func: generate code image
 -- @keymap: v | <c-s> -> copy image to clipboard , v | <c-a> -> save image to file
 -- @status: true ---------- all done
@@ -220,27 +236,10 @@ tools["narutoxy/silicon.lua"] = {
     requires = {
         {
             "nvim-lua/plenary.nvim",
+            opt = false,
         },
     },
     config = conf.silicon,
-}
-
--- @func: remote connect
--- @keymap: :Distant*
--- @status: true ---------- all done
--- @requires: :DistantInstall
-tools["chipsenkbeil/distant.nvim"] = {
-    opt = false,
-    config = function()
-        require('distant').setup {
-            -- Applies Chip's personal settings to every machine you connect to
-            --
-            -- 1. Ensures that distant servers terminate with no connections
-            -- 2. Provides navigation bindings for remote directories
-            -- 3. Provides keybinding to jump into a remote file's parent directory
-            ['*'] = require('distant.settings').chip_default()
-        }
-    end
 }
 
 return tools

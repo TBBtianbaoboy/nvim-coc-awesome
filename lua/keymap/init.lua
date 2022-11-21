@@ -6,6 +6,8 @@ local map_cmd = bind.map_cmd
 require("keymap.config")
 
 local plug_map = {
+    -- buffer ui
+    ["n|<leader>b"] = map_cr("lua require('buffer_manager.ui').toggle_quick_menu()"):with_noremap():with_silent(),
     -- git alternative (parent ] key only for git)
     ["n|]d"] = map_cr("Gitsigns diffthis"):with_noremap():with_silent(),
     ["n|[g"] = map_cr("Gitsigns prev_hunk"):with_noremap():with_silent(),

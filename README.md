@@ -1,5 +1,9 @@
 # Weekly
 
+2022 Nov 21
+This Week in Neovim #19 OK
+2022 Nov 14
+This Week in Neovim #18 OK
 2022 Nov 07
 This Week in Neovim #17 OK
 2022 Oct 31
