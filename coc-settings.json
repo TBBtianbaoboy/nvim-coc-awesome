@@ -19,6 +19,17 @@
   "coc.source.buffer.enable": true,
   "coc.source.file.enable": true,
   "coc.source.db.enable": true,
+  //====== coc doHover config =========
+  // <c-w>w to toggle hover window
+  "hover.target": "float",
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "maxWidth": 100,
+    "maxHeight": 100,
+    "focusable": true,
+    "highlight": "NvimFloat"
+  },
 
   //======coc-conventional config====== git commit
   "coc-conventional.enabled": true,
