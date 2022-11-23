@@ -68,7 +68,12 @@ local def_map = {
     ["c|<Left>"] = map_cmd("<Nop>"),
     ["c|<Right>"] = map_cmd("<Nop>"),
     -- 将<space>映射成<leader>
-    ["n|<Space>"] = map_cmd(";")
+    ["n|<Space>"] = map_cmd(";"),
+    -- create new window
+    ["n|s"] = map_cmd("<Nop>"),
+    ["n|sv"] = map_cmd(":vsplit<CR>"),
+    ["n|sh"] = map_cmd(":split<CR>"),
+    ["n|st"] = map_cmd(":tabnew<CR>"),
 }
 
 bind.nvim_load_mapping(def_map)
