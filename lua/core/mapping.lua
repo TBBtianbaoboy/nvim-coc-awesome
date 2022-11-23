@@ -12,13 +12,11 @@ local def_map = {
     ["n|n"] = map_cmd("nzzzv"):with_noremap(),
     ["n|N"] = map_cmd("Nzzzv"):with_noremap(),
     ["n|J"] = map_cmd("mzJ`z"):with_noremap(), -- 将下一行移动到当前行尾
-    -- Windows Split
-    ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),-- C 表示Ctrl键
-    ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
-    ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
-    ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
-    ["n|<A-;>"] = map_cr("resize -2"):with_silent(),-- A 表示Alt键
-    ["n|<A-'>"] = map_cr("resize +2"):with_silent(),
+    -- Windows jump
+    -- ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),-- C 表示Ctrl键
+    -- ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
+    -- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
+    -- ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
     ["n|<leader>q"] = map_cmd(":q!<CR>"),
     ["n|<leader>w"] = map_cmd(":w<CR>"),
     -- 开启英文单词正确性校验
@@ -51,10 +49,6 @@ local def_map = {
     ["v|<"] = map_cmd("<gv"),
     ["v|>"] = map_cmd(">gv"),
     -- 摒弃上下左右键
-    ["n|<Up>"] = map_cmd("<Nop>"):with_noremap(),
-    ["n|<Down>"] = map_cmd("<Nop>"):with_noremap(),
-    ["n|<Left>"] = map_cmd("<Nop>"):with_noremap(),
-    ["n|<Right>"] = map_cmd("<Nop>"):with_noremap(),
     ["i|<Up>"] = map_cmd("<Nop>"):with_noremap(),
     ["i|<Down>"] = map_cmd("<Nop>"):with_noremap(),
     ["i|<Left>"] = map_cmd("<Nop>"):with_noremap(),
@@ -69,11 +63,20 @@ local def_map = {
     ["c|<Right>"] = map_cmd("<Nop>"),
     -- 将<space>映射成<leader>
     ["n|<Space>"] = map_cmd(";"),
-    -- create new window
+    -- Windows split
     ["n|s"] = map_cmd("<Nop>"),
     ["n|sv"] = map_cmd(":vsplit<CR>"),
     ["n|sh"] = map_cmd(":split<CR>"),
     ["n|st"] = map_cmd(":tabnew<CR>"),
+    ["n|<Left>"] = map_cmd(":vertical res-5<CR>"),
+    ["n|<Right>"] = map_cmd(":vertical res+5<CR>"),
+    ["n|<Up>"] = map_cmd(":res-5<CR>"),
+    ["n|<Down>"] = map_cmd(":res+5<CR>"),
+    -- move quickly
+    ["n|<C-j>"] = map_cmd("5j"),
+    ["n|<C-k>"] = map_cmd("5k"),
+    ["n|<C-h>"] = map_cmd("5h"),
+    ["n|<C-l>"] = map_cmd("5l"),
 }
 
 bind.nvim_load_mapping(def_map)
