@@ -28,7 +28,8 @@
     "maxWidth": 100,
     "maxHeight": 100,
     "focusable": true,
-    "highlight": "NvimFloat"
+    "highlight": "NvimFloat",
+    "title": "Hover"
   },
 
   //======coc-conventional config====== git commit
@@ -158,6 +159,23 @@
     "]c": ["wait", "markNext:git"],
     "<<": "gitStage",
     ">>": "gitUnstage"
-  }
+  },
+  //########## diagnostic config ##########
+  "diagnostic.errorSign": "",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "title": "Code",
+    "maxWidth": 100,
+    "maxHeight": 100,
+    "focusable": true,
+    "highlight": "NvimFloat",
+    "shadow": true
+  },
+  "diagnostic.format": "[%severity]: %message (%source%code)",
+  "diagnostic.refreshOnInsertMode": true,
+
+  //########## links config ##########
+  "links.tooltip": true
 }
 //========================== end ==========================

@@ -153,3 +153,5 @@ let g:coc_global_extensions = [
       \'coc-explorer',
       \'coc-python'
       \]
+
+nmap <silent> ]ol <Plug>(coc-openlink)
