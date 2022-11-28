@@ -13,10 +13,10 @@ local def_map = {
     ["n|N"] = map_cmd("Nzzzv"):with_noremap(),
     ["n|J"] = map_cmd("mzJ`z"):with_noremap(), -- 将下一行移动到当前行尾
     -- Windows jump
-    -- ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),-- C 表示Ctrl键
-    -- ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
-    -- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
-    -- ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
+    ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),-- C 表示Ctrl键
+    ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
+    ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
+    ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
     ["n|<leader>q"] = map_cmd(":q!<CR>"),
     ["n|<leader>w"] = map_cmd(":w<CR>"),
     -- 开启英文单词正确性校验
@@ -73,10 +73,10 @@ local def_map = {
     ["n|<Up>"] = map_cmd(":res-5<CR>"),
     ["n|<Down>"] = map_cmd(":res+5<CR>"),
     -- move quickly
-    ["n|<C-j>"] = map_cmd("5j"),
-    ["n|<C-k>"] = map_cmd("5k"),
-    ["n|<C-h>"] = map_cmd("5h"),
-    ["n|<C-l>"] = map_cmd("5l"),
+    -- ["n|<C-j>"] = map_cmd("5j"),
+    -- ["n|<C-k>"] = map_cmd("5k"),
+    -- ["n|<C-h>"] = map_cmd("5h"),
+    -- ["n|<C-l>"] = map_cmd("5l"),
 }
 
 bind.nvim_load_mapping(def_map)

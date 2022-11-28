@@ -242,4 +242,17 @@ tools["narutoxy/silicon.lua"] = {
     config = conf.silicon,
 }
 
+-- @func: read text more friendly
+-- @keymap: :FSRead | :FSToggle | :FSClear
+-- @status: true ---------- all done
+tools["nullchilly/fsread.nvim"] = {
+    opt = false,
+    config = function()
+        vim.g.flow_strength = 0.7 -- low: 0.3, middle: 0.5, high: 0.7 (default)
+        vim.g.skip_flow_default_hl = true -- If you want to override default highlights
+        vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#ff8700" })
+        vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#98f6ff" })
+    end
+}
+
 return tools
