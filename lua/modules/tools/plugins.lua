@@ -239,6 +239,7 @@ tools["narutoxy/silicon.lua"] = {
             opt = false,
         },
     },
+    commit = "3223d26456f728870cacab91662d03bbace6e354",
     config = conf.silicon,
 }
 

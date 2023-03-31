@@ -30,8 +30,17 @@ This Week in Neovim #9 OK
 > ~/.config/coc/extensions/node_modules
 > TODO
 
-# nvim manager
+# nvim install
 
 ```sh
-cargo install --git https://github.com/MordechaiHadad/bob.git
+curl -o /usr/local/bin/nvim -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod +x /usr/local/bin/nvim
+```
+
+# node.js install
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source~/.zshrc
+nvm list-remote
 ```

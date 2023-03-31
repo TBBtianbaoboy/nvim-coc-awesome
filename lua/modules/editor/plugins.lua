@@ -48,6 +48,7 @@ editor["terrortylor/nvim-comment"] = {
 editor["nvim-treesitter/nvim-treesitter"] = {
     opt = true,
     run = ":TSUpdate",
+    commit = "25b656a4b771ee7d440e506280b9ae546d6f7233",
     event = "BufRead",
     config = conf.nvim_treesitter
 }

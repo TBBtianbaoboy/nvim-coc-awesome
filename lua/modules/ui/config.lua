@@ -172,40 +172,27 @@ end
 
 function config.indent_blankline()
     vim.opt.termguicolors = true
-    -- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-    -- vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-    -- vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-    -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-    -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-    -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+    vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
     vim.opt.list = true
+    vim.opt.listchars:append "space:⋅"
+    vim.opt.listchars:append "eol:↴"
+
     require("indent_blankline").setup {
-        char = "│",
-        show_first_indent_level = true,
-        filetype_exclude = {
-            "startify", "dashboard", "dotooagenda", "log", "fugitive",
-            "gitcommit", "packer", "vimwiki", "markdown", "json", "txt",
-            "vista", "help", "todoist", "NvimTree", "peekaboo", "git",
-            "TelescopePrompt", "undotree", "flutterToolsOutline", "" -- for all buffers without a file type
+        space_char_blankline = " ",
+        char_highlight_list = {
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
+            "IndentBlanklineIndent3",
+            "IndentBlanklineIndent4",
+            "IndentBlanklineIndent5",
+            "IndentBlanklineIndent6",
         },
-        buftype_exclude = { "terminal", "nofile" },
-        show_trailing_blankline_indent = false,
-        show_current_context = true,
-        context_patterns = {
-            "class", "function", "method", "block", "list_literal", "selector",
-            "^if", "^table", "if_statement", "while", "for", "type", "var",
-            "import"
-        },
-        -- char_highlight_list = {
-        --     "IndentBlanklineIndent1",
-        --     "IndentBlanklineIndent2",
-        --     "IndentBlanklineIndent3",
-        --     "IndentBlanklineIndent4",
-        --     "IndentBlanklineIndent5",
-        --     "IndentBlanklineIndent6",
-        -- },
-        space_char_blankline = " "
     }
 end
 
