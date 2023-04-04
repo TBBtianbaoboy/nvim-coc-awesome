@@ -19,6 +19,10 @@
   "coc.source.buffer.enable": true,
   "coc.source.file.enable": true,
   "coc.source.db.enable": true,
+  //====== coc cmake config ======
+  "cmake.formatter_args": [
+    "-c=/home/aico/.config/nvim/config/cmake_formater/formater.py"
+  ],
   //====== coc doHover config =========
   // <c-w>w to toggle hover window
   "hover.target": "float",
