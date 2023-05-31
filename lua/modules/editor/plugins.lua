@@ -48,7 +48,6 @@ editor["terrortylor/nvim-comment"] = {
 editor["nvim-treesitter/nvim-treesitter"] = {
     opt = true,
     run = ":TSUpdate",
-    commit = "25b656a4b771ee7d440e506280b9ae546d6f7233",
     event = "BufRead",
     config = conf.nvim_treesitter
 }
@@ -61,33 +60,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 --     opt = true,
 --     after = "nvim-treesitter",
 --     event = "BufRead"
--- }
-
--- @func: 自动根据文件类型进行注释(nvim_treesitter的子模块)
--- @keymap: conf.nvim_treesitter 的label 3
--- @status: true ---------- all done
--- @deprecated: replace by nvim_comment plugin, nvim_comment can fix the bug of this plugin
--- editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
---     opt = true,
---     after = "nvim-treesitter"
--- }
-
--- @func: 显示当前光标在代码中所处的位置(nvim_treesitter的子模块)
--- @keymap: nil
--- @status: true --------- all done
-editor["SmiteshP/nvim-gps"] = {
-    opt = true,
-    after = "nvim-treesitter",
-    config = conf.nvim_gps
-}
-
--- @func: 自动打标签
--- @keymap: nil
--- @status: true ---------- all done
--- @deprecated: replace by coc extensions - coc-pair
--- editor["windwp/nvim-ts-autotag"] = {
---     opt = true,
---     config = conf.autotag
 -- }
 
 -- @func: %跳装匹配的扩展(nvim_treesitter的子模块)

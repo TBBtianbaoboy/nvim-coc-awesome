@@ -11,16 +11,6 @@ function config.edge()
 end
 
 function config.lualine()
-    local gps = require("nvim-gps")
-
-    local function gps_content()
-        if gps.is_available() then
-            return gps.get_location()
-        else
-            return ""
-        end
-    end
-
     local symbols_outline = {
         sections = {
             lualine_a = { 'mode' },
@@ -45,7 +35,7 @@ function config.lualine()
             lualine_a = { "mode" },
             lualine_b = { { "branch" }, { "diff" } },
             lualine_c = {
-                { "lsp_progress" }, { gps_content, cond = gps.is_available }
+                { "lsp_progress" }
             },
             lualine_x = {
                 {
@@ -203,12 +193,6 @@ function config.gruvbox()
     vim.cmd [[highlight link CocExplorerFileDiagnosticWarning None]]
     vim.cmd [[highlight link CocExplorerFileDiagnosticError None]]
     vim.cmd [[highlight link TelescopeSelection SignColumn]]
-end
-
-function config.codewindow()
-    local codewindow = require('codewindow')
-    codewindow.setup()
-    codewindow.apply_default_keybinds()
 end
 
 function config.NeoSolarized()
