@@ -81,7 +81,7 @@ editor["rhysd/accelerated-jk"] = { opt = true }
 -- @status: true ---------- all done
 editor["hrsh7th/vim-eft"] = { opt = true }
 
--- @func: 使用删除键取消搜索高亮时，可以再次搜索，且自动不高亮
+-- @func: 使用删除键取消搜索高亮时，可以再次搜索，且自动不高亮 (asiryk/auto-hlsearch.nvim)
 -- @keymap: n N
 -- @status: true ---------- all done
 editor["romainl/vim-cool"] = {
@@ -241,15 +241,17 @@ editor["anuvyklack/windows.nvim"] = {
         vim.o.winminwidth = 10
         vim.o.equalalways = false
         require("windows").setup({
-            autowidth = { --		       |windows.autowidth|
+            autowidth = {
+                               --		       |windows.autowidth|
                 enable = true,
                 winwidth = 50, --		        |width = equal+50|
-                filetype = { --	      |windows.autowidth.filetype|
+                filetype = {   --	      |windows.autowidth.filetype|
                     help = 2,
                 },
             },
             -- 忽视文件
-            ignore = { --			  |windows.ignore|
+            ignore = {
+                       --			  |windows.ignore|
                 buftype = { "quickfix" },
                 filetype = { "coc-explorer", "NvimTree", "neo-tree", "undotree", "gundo" }
             },
