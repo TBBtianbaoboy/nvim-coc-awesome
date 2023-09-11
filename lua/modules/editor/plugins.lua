@@ -242,7 +242,7 @@ editor["anuvyklack/windows.nvim"] = {
         vim.o.equalalways = false
         require("windows").setup({
             autowidth = {
-                               --		       |windows.autowidth|
+                --		       |windows.autowidth|
                 enable = true,
                 winwidth = 50, --		        |width = equal+50|
                 filetype = {   --	      |windows.autowidth.filetype|
@@ -251,7 +251,7 @@ editor["anuvyklack/windows.nvim"] = {
             },
             -- 忽视文件
             ignore = {
-                       --			  |windows.ignore|
+                --			  |windows.ignore|
                 buftype = { "quickfix" },
                 filetype = { "coc-explorer", "NvimTree", "neo-tree", "undotree", "gundo" }
             },
@@ -311,6 +311,29 @@ editor["voldikss/vim-translator"] = {
         vim.api.nvim_exec(
             [[source ~/.config/nvim/lua/modules/editor/translate.vim]],
             false)
+    end
+}
+
+-- @func: search replace
+-- @keymap: <C-r> -> 选中区域搜索替换 | <leader>ro -> 打开搜索替换窗口 | <leader>rw -> 替换光标下的单词 | <leader>re -> 替换光标下的表达式
+-- @status: true --------- all done
+editor["roobert/search-replace.nvim"] = {
+    opt = false,
+    config = function()
+        require("search-replace").setup({
+            -- optionally override defaults
+            default_replace_single_buffer_options = "g",
+            default_replace_multi_buffer_options = "eg",
+        })
+        local opts = {}
+        vim.api.nvim_set_keymap("v", "<C-r>", "<CMD>SearchReplaceWithinVisualSelection<CR>", opts)
+
+        vim.api.nvim_set_keymap("n", "<leader>ro", "<CMD>SearchReplaceSingleBufferOpen<CR>", opts)
+        vim.api.nvim_set_keymap("n", "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", opts)
+        vim.api.nvim_set_keymap("n", "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", opts)
+
+        -- show the effects of a search / replace in a live preview window
+        vim.o.inccommand = "split"
     end
 }
 
