@@ -1,10 +1,10 @@
 # Weekly
 
 ```sh
-2023/1/2 OK (ADD 'roobert/search-replace.nvim' 'nvim-various-textobjs')
+2023/1/2 OK (ADD 'roobert/search-replace.nvim')
 2023/1/9 OK (NO)
 2023/1/16 OK (NO)
-2023/1/23 OK (ADD 'RaafatTurki/hex.nvim')
+2023/1/23 OK (NO)
 ```
 
 # coc extension site
