@@ -22,7 +22,6 @@ function config.telescope()
             initial_mode = "insert",
             path_display = { "absolute" },
             file_ignore_patterns = {},
-
             -- mapping config ( all here )
             mappings = {
                 i = {
@@ -69,10 +68,10 @@ function config.telescope()
             --   extension_config_key = value,
             -- }
             fzf = {
-                fuzzy = false, -- false will only do exact matching
+                fuzzy = false,                  -- false will only do exact matching
                 override_generic_sorter = true, -- override the generic sorter
-                override_file_sorter = true, -- override the file sorter
-                case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                override_file_sorter = true,    -- override the file sorter
+                case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                 -- the default case_mode is "smart_case"
             },
             frecency = {
@@ -256,14 +255,189 @@ function config.silicon()
         lineNumber = true,
         font = "monospace",
         lineOffset = 1, -- from where to start line number
-        linePad = 2, -- padding between lines
-        padHoriz = 80, -- Horizontal padding
-        padVert = 100, -- vertical padding
+        linePad = 2,    -- padding between lines
+        padHoriz = 80,  -- Horizontal padding
+        padVert = 100,  -- vertical padding
         shadowBlurRadius = 10,
         shadowColor = "#555555",
         shadowOffsetX = 8,
         shadowOffsetY = 8,
     })
+end
+
+function config.fsread()
+    vim.g.flow_strength = 0.7         -- low: 0.3, middle: 0.5, high: 0.7 (default)
+    vim.g.skip_flow_default_hl = true -- If you want to override default highlights
+    vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#ff8700" })
+    vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#98f6ff" })
+end
+
+function config.flote()
+    -- defaults
+    require('flote').setup {
+        q_to_quit = true,
+        window_style = 'minimal',
+        window_border = 'solid',
+        window_title = true,
+        notes_dir = vim.fn.stdpath('cache') .. '/flote',
+        files = {
+            global = 'flote-global.md',
+            cwd = function()
+                return vim.fn.getcwd()
+            end,
+            file_name = function(cwd)
+                local base_name = vim.fs.basename(cwd)
+                local parent_base_name = vim.fs.basename(vim.fs.dirname(cwd))
+                return parent_base_name .. '_' .. base_name .. '.md'
+            end
+        }
+
+    }
+end
+
+function config.chatgpt()
+    require("chatgpt").setup(
+        {
+            api_key_cmd = nil,
+            yank_register = "+",
+            edit_with_instructions = {
+                diff = false,
+                keymaps = {
+                    close = "<C-c>",
+                    accept = "<C-y>",
+                    toggle_diff = "<C-d>",
+                    toggle_settings = "<C-o>",
+                    cycle_windows = "<Tab>",
+                    use_output_as_input = "<C-i>",
+                },
+            },
+            chat = {
+                welcome_message = WELCOME_MESSAGE,
+                loading_text = "Loading, please wait ...",
+                question_sign = "",
+                answer_sign = "🤓",
+                max_line_length = 120,
+                sessions_window = {
+                    border = {
+                        style = "rounded",
+                        text = {
+                            top = " Sessions ",
+                        },
+                    },
+                    win_options = {
+                        winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                    },
+                },
+                keymaps = {
+                    close = { "<C-c>" },
+                    yank_last = "<C-y>",
+                    yank_last_code = "<C-k>",
+                    scroll_up = "<C-u>",
+                    scroll_down = "<C-d>",
+                    new_session = "<C-n>",
+                    cycle_windows = "<Tab>",
+                    cycle_modes = "<C-f>",
+                    select_session = "<Space>",
+                    rename_session = "r",
+                    delete_session = "d",
+                    draft_message = "<C-d>",
+                    toggle_settings = "<C-o>",
+                    toggle_message_role = "<C-r>",
+                    toggle_system_role_open = "<C-s>",
+                    stop_generating = "<C-x>",
+                },
+            },
+            popup_layout = {
+                default = "center",
+                center = {
+                    width = "80%",
+                    height = "80%",
+                },
+                right = {
+                    width = "30%",
+                    width_settings_open = "50%",
+                },
+            },
+            popup_window = {
+                border = {
+                    highlight = "FloatBorder",
+                    style = "rounded",
+                    text = {
+                        top = " ChatGPT ",
+                    },
+                },
+                win_options = {
+                    wrap = true,
+                    linebreak = true,
+                    foldcolumn = "1",
+                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+                buf_options = {
+                    filetype = "markdown",
+                },
+            },
+            system_window = {
+                border = {
+                    highlight = "FloatBorder",
+                    style = "rounded",
+                    text = {
+                        top = " SYSTEM ",
+                    },
+                },
+                win_options = {
+                    wrap = true,
+                    linebreak = true,
+                    foldcolumn = "2",
+                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+            },
+            popup_input = {
+                prompt = "  ",
+                border = {
+                    highlight = "FloatBorder",
+                    style = "rounded",
+                    text = {
+                        top_align = "center",
+                        top = " Prompt ",
+                    },
+                },
+                win_options = {
+                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+                submit = "<C-Enter>",
+                submit_n = "<Enter>",
+                max_visible_lines = 20
+            },
+            settings_window = {
+                border = {
+                    style = "rounded",
+                    text = {
+                        top = " Settings ",
+                    },
+                },
+                win_options = {
+                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+            },
+            openai_params = {
+                model = "gpt-3.5-turbo",
+                frequency_penalty = 0,
+                presence_penalty = 0,
+                max_tokens = 300,
+                temperature = 0,
+                top_p = 1,
+                n = 1,
+            },
+            openai_edit_params = {
+                model = "code-davinci-edit-001",
+                temperature = 0,
+                top_p = 1,
+                n = 1,
+            },
+            actions_paths = {},
+            show_quickfixes_cmd = "Trouble quickfix",
+            predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
+        })
 end
 
 return config

@@ -52,4 +52,21 @@ lang['luzhlon/xmake.vim'] = {
         {'luzhlon/qrun.vim'},
     },
 }
+
+-- @func: xmake entension
+-- @keymap: nil
+-- @status: true ---------- all done
+lang['antiagainst/vim-tablegen'] = {
+    opt = true,
+    ft = 'td',
+}
+
+-- @func: xmake entension
+-- @keymap: nil
+-- @status: true ---------- all done
+lang['hunterzju/mlir-vim'] = {
+    opt = true,
+    ft = 'mlir',
+}
+
 return lang
