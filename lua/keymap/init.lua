@@ -99,6 +99,8 @@ local plug_map = {
     -- Plugin silicon
     ["v|<C-s>"] = map_cr("lua require('silicon').visualise_api({to_clip = true})"):with_noremap():with_silent(),
     ["v|<C-a>"] = map_cr("lua require('silicon').visualise_api({show_buf = true})"):with_noremap():with_silent(),
+    -- Plugin Chatgpt
+    ["n|<leader>ao"] = map_cu("ChatGPT"):with_noremap():with_silent(),
 
 }
 
