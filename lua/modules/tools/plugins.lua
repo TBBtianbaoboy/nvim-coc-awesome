@@ -86,22 +86,6 @@ tools["andrewferrier/debugprint.nvim"] = {
     config = conf.debugprint,
 }
 
-
--- @func: ascii image in nvim terminal
--- @keymap: nil
--- @status: true ---------- all done
--- @Manually: 需要手动安装 ascii-image-converter 并置于 $PATH
-tools["samodostal/image.nvim"] = {
-    opt = false,
-    requires = {
-        {
-            "nvim-lua/plenary.nvim",
-            opt = false,
-        },
-    },
-    config = conf.image,
-}
-
 -- @func: emoji input
 -- @keymap: 'i | <A-m>'
 -- @status: true ---------- all done
@@ -114,42 +98,8 @@ tools["WilsonOh/emoji_picker-nvim"] = {
     end,
 }
 
--- @func: command line pro
--- @keymap: : | ? | /
--- @status: true ---------- all done
--- @Deprecated: delete this can fix rename bug
--- tools["folke/noice.nvim"] = {
---     opt = true,
---     event = "VimEnter",
---     config = function()
---         require("noice").setup({
---             cmdline = {
---                 view = "cmdline",
---             },
---         })
---     end,
---     requires = {
---         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
---         { "MunifTanjim/nui.nvim" },
---         -- OPTIONAL:
---         --   `nvim-notify` is only needed, if you want to use the notification view.
---         --   If not available, we use `mini` as the fallback
---         { "rcarriga/nvim-notify"
---             , opt = true
---             , module = "notify"
---             , config = function()
---                 require("notify").setup({
---                     stages = "fade_in_slide_out",
---                     top_down = false;
---                     background_colour = "#000000",
---                 })
---             end
---         },
---     }
--- }
-
 -- @func: show json path in statusline
--- @keymap: nil
+-- @keymap: y<C-p>
 -- @status: true ---------- all done
 tools["phelipetls/jsonpath.nvim"] = {
     opt = true,
@@ -173,21 +123,6 @@ tools["almo7aya/openingh.nvim"] = {
     opt = false,
 }
 
--- @func: project manager
--- @keymap: :Ide*
--- @status: true ---------- TODO
--- tools["Dax89/IDE.nvim"] = {
---     opt = false,
---     requires = {
---        {"nvim-lua/plenary.nvim"},
---        {"rcarriga/nvim-notify"},   -- Notifications Popup (Optional)
---        {"stevearc/dressing.nvim"}, -- Improved UI (Optional)
---        {"mfussenegger/nvim-dap"} , -- DAP Support (Optional)
---        {"rcarriga/nvim-dap-ui"},   -- DAP-UI Support (Optional)
---     },
---     -- config = conf.ide,
--- }
-
 -- @func: color picker
 -- @keymap: :CccPick ( hjkl | i | o | a | q | g | w(W) | b(B) | d | s | H | M | L | 1-9)
 -- @status: true ---------- all done
@@ -201,14 +136,14 @@ tools["uga-rosa/ccc.nvim"] = {
 -- @func: show nvim register and interactive with it
 -- @keymap: "r -> open register | "p("P) -> open register and paste
 -- @status: true ---------- all done
-tools["gennaro-tedesco/nvim-peekup"] = {
-    opt = false,
-    config = function()
-        vim.api.nvim_exec(
-            [[source ~/.config/nvim/lua/modules/tools/register.vim]],
-            false)
-    end
-}
+-- tools["gennaro-tedesco/nvim-peekup"] = {
+--     opt = false,
+--     config = function()
+--         vim.api.nvim_exec(
+--             [[source ~/.config/nvim/lua/modules/tools/register.vim]],
+--             false)
+--     end
+-- }
 
 -- @func: show nvim buffer and interactive with it
 -- @keymap: <leader>b
@@ -246,20 +181,20 @@ tools["narutoxy/silicon.lua"] = {
 -- @func: read text more friendly
 -- @keymap: :FSRead | :FSToggle | :FSClear
 -- @status: true ---------- all done
-tools["nullchilly/fsread.nvim"] = {
-    opt = false,
-    config = conf.fsread,
-}
+-- tools["nullchilly/fsread.nvim"] = {
+--     opt = false,
+--     config = conf.fsread,
+-- }
 
 -- @func: global note for myself
 -- @keymap:
 -- @status: true ---------- all done
-tools["JellyApple102/flote.nvim"] = {
-    opt = false,
-    config = conf.flote,
-}
+-- tools["JellyApple102/flote.nvim"] = {
+--     opt = false,
+--     config = conf.flote,
+-- }
 
--- @func: global note for myself
+-- @func: chatgpt
 -- @keymap:
 -- @status: true ---------- all done
 tools["jackMort/ChatGPT.nvim"] = {

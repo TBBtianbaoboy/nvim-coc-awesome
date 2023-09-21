@@ -17,6 +17,9 @@
 2023/4/3 OK (ADD 'JellyApple102/flote.nvim')
 2023/4/10 OK (NO)
 2023/4/17 OK (ADD 'jackMort/ChatGPT.nvim')
+2023/5/8 OK (NO)
+2023/5/15 OK (NO)
+2023/5/23 OK (NO)
 ```
 
 # coc extension site

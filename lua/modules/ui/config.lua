@@ -1,15 +1,5 @@
 local config = {}
 
-function config.edge()
-    vim.cmd [[set background=dark]]
-    vim.g.edge_style = "aura"
-    vim.g.edge_enable_italic = 1
-    vim.g.edge_disable_italic_comment = 1
-    vim.g.edge_show_eob = 1
-    vim.g.edge_better_performance = 1
-    vim.g.edge_transparent_background = 1
-end
-
 function config.lualine()
     local symbols_outline = {
         sections = {
@@ -62,34 +52,34 @@ function config.lualine()
     }
 end
 
-function config.nvim_bufferline()
-    require("bufferline").setup {
-        options = {
-            number = "none",
-            modified_icon = "✥",
-            buffer_close_icon = "",
-            left_trunc_marker = "",
-            right_trunc_marker = "",
-            max_name_length = 14,
-            max_prefix_length = 13,
-            tab_size = 20,
-            show_buffer_close_icons = true,
-            show_buffer_icons = true,
-            show_tab_indicators = true,
-            diagnostics = "nvim_lsp",
-            always_show_bufferline = true,
-            separator_style = "thin",
-            offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    text_align = "center",
-                    padding = 1
-                }
-            }
-        }
-    }
-end
+-- function config.nvim_bufferline()
+--     require("bufferline").setup {
+--         options = {
+--             number = "none",
+--             modified_icon = "✥",
+--             buffer_close_icon = "",
+--             left_trunc_marker = "",
+--             right_trunc_marker = "",
+--             max_name_length = 14,
+--             max_prefix_length = 13,
+--             tab_size = 20,
+--             show_buffer_close_icons = true,
+--             show_buffer_icons = true,
+--             show_tab_indicators = true,
+--             diagnostics = "nvim_lsp",
+--             always_show_bufferline = true,
+--             separator_style = "thin",
+--             offsets = {
+--                 {
+--                     filetype = "NvimTree",
+--                     text = "File Explorer",
+--                     text_align = "center",
+--                     padding = 1
+--                 }
+--             }
+--         }
+--     }
+-- end
 
 function config.gitsigns()
     require("gitsigns").setup {
@@ -193,33 +183,6 @@ function config.gruvbox()
     vim.cmd [[highlight link CocExplorerFileDiagnosticWarning None]]
     vim.cmd [[highlight link CocExplorerFileDiagnosticError None]]
     vim.cmd [[highlight link TelescopeSelection SignColumn]]
-end
-
-function config.NeoSolarized()
-    local ok_status, NeoSolarized = pcall(require, "NeoSolarized")
-
-    if not ok_status then
-        return
-    end
-
-    -- Default Setting for NeoSolarized
-
-    NeoSolarized.setup {
-        style = "dark",         -- "dark" or "light"
-        transparent = true,     -- true/false
-        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-        enable_italics = true,  -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
-        styles = {
-            -- Style for different style groups
-            comments = { italic = true },
-            keywords = { italic = true },
-            functions = { bold = true },
-            variables = {},
-            string = { italic = true },
-            underline = true, -- true/false; for global underline
-            undercurl = true, -- true/false; for global undercurl
-        },
-    }
 end
 
 return config

@@ -155,95 +155,6 @@ function config.debugprint()
     require("debugprint").setup()
 end
 
-function config.image()
-    -- Require and call setup function somewhere in your init.lua
-    require('image').setup {
-        render = {
-            min_padding = 5,
-            show_label = true,
-            use_dither = true,
-        },
-        events = {
-            update_on_nvim_resize = true,
-        },
-    }
-end
-
--- function config.ide()
---     require("ide").setup({
---         mappings = {
---             ["<F5>"] = function(project)
---                 if project:is_busy() and not project:has_state("debug") then
---                     return
---                 end
---
---                 project:debug()
---             end,
---
---             ["<F7>"] = function(project)
---                 if project:has_state("debug") then
---                     project:debug({ type = "stepinto" })
---                 else
---                     vim.api.nvim_command(":NeoTreeShowToggle")
---                 end
---             end,
---
---             ["<F8>"] = function(project)
---                 if project:has_state("debug") then
---                     project:debug({ type = "stepover" })
---                 else
---                     project:build()
---                 end
---             end,
---
---             ["<C-F5>"] = function(project)
---                 if not project:has_state("run") then
---                     project:run()
---                 end
---             end,
---
---             ["<C-F8>"] = function(project)
---                 project:settings()
---             end,
---
---             ["<A-F5>"] = function(project)
---                 if project:has_state("debug") then
---                     project:debug({ type = "stop" })
---                 end
---             end,
---
---             ["<A-BS>"] = function(project)
---                 if project:is_busy() and not project:has_state("debug") then
---                     project:stop()
---                 end
---             end
---         },
---
---         integrations = {
---             dap = {
---                 enable = true,
---
---                 config = {
---                     adapters = {
---                         codelldb = {
---                             type = "server",
---                             port = 8990,
---
---                             executable = {
---                                 command = "<INSERT codelldb PATH>",
---                                 args = { "--port", "8990" }
---                             }
---                         }
---                     }
---                 }
---             },
---
---             dapui = { enable = true },
---             git = { enable = true },
---         }
---     })
--- end
-
 function config.silicon()
     require('silicon').setup({
         theme = "auto",
@@ -265,35 +176,35 @@ function config.silicon()
     })
 end
 
-function config.fsread()
-    vim.g.flow_strength = 0.7         -- low: 0.3, middle: 0.5, high: 0.7 (default)
-    vim.g.skip_flow_default_hl = true -- If you want to override default highlights
-    vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#ff8700" })
-    vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#98f6ff" })
-end
+-- function config.fsread()
+--     vim.g.flow_strength = 0.7         -- low: 0.3, middle: 0.5, high: 0.7 (default)
+--     vim.g.skip_flow_default_hl = true -- If you want to override default highlights
+--     vim.api.nvim_set_hl(0, "FSPrefix", { fg = "#ff8700" })
+--     vim.api.nvim_set_hl(0, "FSSuffix", { fg = "#98f6ff" })
+-- end
 
-function config.flote()
-    -- defaults
-    require('flote').setup {
-        q_to_quit = true,
-        window_style = 'minimal',
-        window_border = 'solid',
-        window_title = true,
-        notes_dir = vim.fn.stdpath('cache') .. '/flote',
-        files = {
-            global = 'flote-global.md',
-            cwd = function()
-                return vim.fn.getcwd()
-            end,
-            file_name = function(cwd)
-                local base_name = vim.fs.basename(cwd)
-                local parent_base_name = vim.fs.basename(vim.fs.dirname(cwd))
-                return parent_base_name .. '_' .. base_name .. '.md'
-            end
-        }
-
-    }
-end
+-- function config.flote()
+--     -- defaults
+--     require('flote').setup {
+--         q_to_quit = true,
+--         window_style = 'minimal',
+--         window_border = 'solid',
+--         window_title = true,
+--         notes_dir = vim.fn.stdpath('cache') .. '/flote',
+--         files = {
+--             global = 'flote-global.md',
+--             cwd = function()
+--                 return vim.fn.getcwd()
+--             end,
+--             file_name = function(cwd)
+--                 local base_name = vim.fs.basename(cwd)
+--                 local parent_base_name = vim.fs.basename(vim.fs.dirname(cwd))
+--                 return parent_base_name .. '_' .. base_name .. '.md'
+--             end
+--         }
+--
+--     }
+-- end
 
 function config.chatgpt()
     require("chatgpt").setup(
@@ -429,7 +340,8 @@ function config.chatgpt()
                 n = 1,
             },
             openai_edit_params = {
-                model = "code-davinci-edit-001",
+                model = "gpt-3.5-turbo",
+                max_tokens = 300,
                 temperature = 0,
                 top_p = 1,
                 n = 1,
