@@ -6,7 +6,7 @@ local editor = {}
 local conf = require("modules.editor.config")
 
 -- @func: 自动对齐
--- @keymap: ga
+-- @keymap: n | ga
 -- @status: true ---------- all done
 editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
 
@@ -26,12 +26,6 @@ editor["terrortylor/nvim-comment"] = {
     opt = false,
     config = function()
         require("nvim_comment").setup({
-            -- hook = function()
-            --     local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-            --     if filetype ~= "cpp" or filetype ~= "c" or filetype ~= "h" or filetype ~= "cc" then
-            --         require("ts_context_commentstring.internal").update_commentstring()
-            --     end
-            -- end,
             -- set cpp comment string
             vim.cmd [[augroup set-commentstring-ag]],
             vim.cmd [[autocmd!]],
@@ -51,16 +45,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
     event = "BufRead",
     config = conf.nvim_treesitter
 }
-
--- @func: 给括号增加颜色(nvim_treesitter的子模块)
--- @keymap: conf.nvim_treesitter 的label 2
--- @status: true ---------- all done
--- @deprecated: unnecessary
--- editor["p00f/nvim-ts-rainbow"] = {
---     opt = true,
---     after = "nvim-treesitter",
---     event = "BufRead"
--- }
 
 -- @func: %跳装匹配的扩展(nvim_treesitter的子模块)
 -- @keymap: %(conf.nvim_treesitter的label 4)
@@ -90,7 +74,7 @@ editor["romainl/vim-cool"] = {
 }
 
 -- @func: 热词跳转，可以跳转到任何想要跳到的地方
--- @keymap: <leader>h | <leader>j | <leader>c1 | <leader>c2
+-- @keymap: <leader>h | <leader>j | <leader>k | <leader>l
 -- @status: true ---------- all done
 editor["phaazon/hop.nvim"] = {
     opt = true,
@@ -122,11 +106,6 @@ editor["akinsho/nvim-toggleterm.lua"] = {
     config = conf.toggleterm
 }
 
--- @func: 打开一个shell窗口并运行相应的命令
--- @keymap: <space>g
--- @status: true ---------- all done
-editor["numtostr/FTerm.nvim"] = { opt = true, event = "BufRead" }
-
 -- @func: 给#ffffff配上颜色
 -- @keymap: nil
 -- @status: true ---------- all done
@@ -136,34 +115,6 @@ editor["norcalli/nvim-colorizer.lua"] = {
     config = conf.nvim_colorizer
 }
 
--- @func: auto save file cursor position and restore it when reopen
--- @keymap: nil
--- @status: true ---------- all done
--- @deprecated: true
--- @reason: coc-list has provided this function(use default configuration)
--- editor["rmagatti/auto-session"] = {
---     opt = true,
---     cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
---     config = conf.auto_session
--- }
-
-----------------------------------待扩展
--- @func: 未知
--- @keymap: unknow
--- @status: false
--- editor["rcarriga/nvim-dap-ui"] = {
---     opt = false,
---     config = conf.dapui,
---     requires = {
---         {"mfussenegger/nvim-dap", config = conf.dap}, {
---             "Pocco81/DAPInstall.nvim",
---             opt = true,
---             cmd = {"DIInstall", "DIUninstall", "DIList"},
---             config = conf.dapinstall
---         }
---     }
--- }
-
 -- @func: 在vim 中运行 git 命令
 -- @keymap: ':Git', ':G' , 'n | <Space>G'
 -- @status: true ---------- all done
@@ -172,7 +123,6 @@ editor["tpope/vim-fugitive"] = {
     cmd = { "Git", "G" },
 }
 
------------------------------------------------------------------------
 -- @func: 修改变量形式
 -- @keymap: :'n | crc', 'n | crm', 'n | crs' 最常用，更多用法请查阅帮助手册
 -- @status: true ---------- all done
@@ -214,18 +164,6 @@ editor["terryma/vim-expand-region"] = {
 editor["AndrewRadev/splitjoin.vim"] = {
     opt = false,
 }
------------------------------------------------------------------------
-
--- @func: 自动调整窗口大小
--- @keymap: nil
--- @status: true --------- all done
--- @deprecated: true
--- editor["beauwilliams/focus.nvim"] = {
---     opt = false,
---     config = function()
---         require("focus").setup()
---     end
--- }
 
 -- @func: 自动调整窗口大小
 -- @keymap: <C-w>z -> 最大化 | <C-w>= -> 恢复 | <C-w>| -> 垂直最大化 | <C-w>_ -> 水平最大化

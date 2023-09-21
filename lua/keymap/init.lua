@@ -27,19 +27,8 @@ local plug_map = {
     -- symbols_outline
     ["n|<leader>so"] = map_cr("Vista"):with_noremap():with_silent(),
     -- 缓冲线选择/删除快捷键
-    ["n|<leader>1"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
-    ["n|<leader>2"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent(),
-    ["n|<leader>3"] = map_cr("BufferLineGoToBuffer 3"):with_noremap():with_silent(),
-    ["n|<leader>4"] = map_cr("BufferLineGoToBuffer 4"):with_noremap():with_silent(),
-    ["n|<leader>5"] = map_cr("BufferLineGoToBuffer 5"):with_noremap():with_silent(),
-    ["n|<leader>6"] = map_cr("BufferLineGoToBuffer 6"):with_noremap():with_silent(),
-    ["n|<leader>7"] = map_cr("BufferLineGoToBuffer 7"):with_noremap():with_silent(),
-    ["n|<leader>8"] = map_cr("BufferLineGoToBuffer 8"):with_noremap():with_silent(),
-    ["n|<leader>9"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent(),
     ["n|gb"] = map_cu("BufferLinePick"):with_noremap():with_silent(),
     ["n|gB"] = map_cu("BufferLinePickClose"):with_noremap():with_silent(),
-    -- ["n|<Leader>g"] = map_cu("lua require('FTerm').run('gitui')"):with_noremap()
-    --     :with_silent(),
     -- Plugin Telescope
     ["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
     ["n|<Leader>fw"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
@@ -67,8 +56,8 @@ local plug_map = {
     -- Plugin Hop
     ["n|<leader>h"] = map_cu("HopWord"):with_noremap(),
     ["n|<leader>j"] = map_cu("HopLine"):with_noremap(),
-    ["n|<leader>c1"] = map_cu("HopChar1"):with_noremap(),
-    ["n|<leader>c2"] = map_cu("HopChar2"):with_noremap(),
+    ["n|<leader>k"] = map_cu("HopChar1"):with_noremap(),
+    ["n|<leader>l"] = map_cu("HopChar2"):with_noremap(),
     -- Plugin EasyAlign
     ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
     ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
