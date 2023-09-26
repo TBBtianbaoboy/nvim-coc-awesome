@@ -47,14 +47,14 @@ function config.neoscroll()
             "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz",
             "zb"
         },
-        hide_cursor = true, -- Hide cursor while scrolling
-        stop_eof = true, -- Stop at <EOF> when scrolling downwards
+        hide_cursor = true,          -- Hide cursor while scrolling
+        stop_eof = true,             -- Stop at <EOF> when scrolling downwards
         use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+        respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
         cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = nil, -- Default easing function
-        pre_hook = nil, -- Function to run before the scrolling animation starts
-        post_hook = nil -- Function to run after the scrolling animation ends
+        easing_function = nil,       -- Default easing function
+        pre_hook = nil,              -- Function to run before the scrolling animation starts
+        post_hook = nil              -- Function to run after the scrolling animation ends
     })
 end
 
@@ -87,13 +87,13 @@ function config.toggleterm()
         hide_numbers = true, -- hide the number column in toggleterm buffers
         shade_filetypes = {},
         shade_terminals = false,
-        shading_factor = "1", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+        shading_factor = "1",   -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
         start_in_insert = true,
         insert_mappings = true, -- whether or not the open mapping applies in insert mode
         persist_size = true,
         direction = "float",
         close_on_exit = true, -- close the terminal window when the process exits
-        shell = vim.o.shell -- change the default shell
+        shell = vim.o.shell   -- change the default shell
     }
 end
 
@@ -296,5 +296,12 @@ function config.autolist()
     require('autolist').setup(autolist_config)
 end
 -- ###################################### end ######################################
+function config.Trans()
+    require("Trans").setup {
+    }
+    vim.keymap.set('n', 'mi', '<Cmd>TranslateInput<CR>')
+    vim.keymap.set({ 'n', 'x' }, 'mm', '<Cmd>Translate<CR>')
+    vim.keymap.set({ 'n', 'x' }, 'mk', '<Cmd>TransPlay<CR>') -- 自动发音选中或者光标下的单词
+end
 
 return config

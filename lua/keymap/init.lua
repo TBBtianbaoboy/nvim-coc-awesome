@@ -26,9 +26,6 @@ local plug_map = {
     ["n|]pl"] = map_cr("G pull"):with_noremap():with_silent(),
     -- symbols_outline
     ["n|<leader>so"] = map_cr("Vista"):with_noremap():with_silent(),
-    -- 缓冲线选择/删除快捷键
-    ["n|gb"] = map_cu("BufferLinePick"):with_noremap():with_silent(),
-    ["n|gB"] = map_cu("BufferLinePickClose"):with_noremap():with_silent(),
     -- Plugin Telescope
     ["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
     ["n|<Leader>fw"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),

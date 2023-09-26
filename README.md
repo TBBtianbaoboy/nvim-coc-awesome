@@ -20,6 +20,11 @@
 2023/5/8 OK (NO)
 2023/5/15 OK (NO)
 2023/5/23 OK (NO)
+2023/5/29 OK (NO)
+2023/6/7 OK (NO)
+2023/6/12 OK (NO)
+2023/7/10 OK (NO)
+2023/7/16 OK (NO)
 ```
 
 # coc extension site

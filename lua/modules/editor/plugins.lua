@@ -275,4 +275,14 @@ editor["roobert/search-replace.nvim"] = {
     end
 }
 
+-- @func: local translator and spelling
+-- @keymap:
+-- @status: true --------- all done
+editor["JuanZoran/Trans.nvim"] = {
+    opt = false,
+    run = function() require('Trans').install() end,
+    -- requires = 'kkharji/sqlite.lua',
+    config = conf.Trans,
+}
+
 return editor
