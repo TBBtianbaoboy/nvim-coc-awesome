@@ -108,4 +108,28 @@ tool["mfussenegger/nvim-dap"] = {
 	},
 }
 
+-- @func: neoai chatgpt
+-- @keymap: command
+-- @status: true ---------- all done
+tool["Bryley/neoai.nvim"] = {
+	lazy = true,
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+	},
+	cmd = {
+		"NeoAI",
+		"NeoAIOpen",
+		"NeoAIClose",
+		"NeoAIToggle",
+		"NeoAIContext",
+		"NeoAIContextOpen",
+		"NeoAIContextClose",
+		"NeoAIInject",
+		"NeoAIInjectCode",
+		"NeoAIInjectContext",
+		"NeoAIInjectContextCode",
+	},
+	config = require("tool.neoai"),
+}
+
 return tool
