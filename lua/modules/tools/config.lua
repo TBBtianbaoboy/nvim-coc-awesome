@@ -352,4 +352,42 @@ function config.chatgpt()
         })
 end
 
+function config.leetcode()
+    require('leetcode').setup(
+        {
+            domain = "com", -- For now "com" is the only one supported
+            arg = "leetcode.nvim",
+            lang = "cpp",
+            sql = "mysql",
+            directory = vim.fn.stdpath("data") .. "/leetcode/",
+            logging = true,
+            console = {
+                open_on_runcode = false, ---@type boolean
+
+                dir = "row", ---@type "col" | "row"
+
+                size = {
+                    width = "90%", ---@type string | integer
+                    height = "75%", ---@type string | integer
+                },
+
+                result = {
+                    size = "60%", ---@type string | integer
+                },
+
+                testcase = {
+                    size = "40%", ---@type string | integer
+                },
+            },
+
+            description = {
+                position = "left", ---@type "top" | "right" | "bottom" | "left"
+
+                width = "40%", ---@type string | integer
+            },
+        }
+
+    )
+end
+
 return config

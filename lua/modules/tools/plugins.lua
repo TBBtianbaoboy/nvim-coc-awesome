@@ -317,4 +317,19 @@ tools["Bryley/neoai.nvim"] = {
     end
 }
 
+-- @func: leetcode
+-- @keymap:
+-- @status: true ---------- all done
+tools["kawre/leetcode.nvim"] = {
+    opt = false,
+    run = ":TSUpdate html",
+    requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim", -- required by telescope
+        "MunifTanjim/nui.nvim",
+    },
+    config = conf.leetcode
+}
+
 return tools
